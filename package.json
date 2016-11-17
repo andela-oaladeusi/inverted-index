@@ -1,0 +1,25 @@
+{
+  "name": "inverted-index",
+  "version": "1.0.0",
+  "description": "\"Inverted index is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any documents, and for each word in the document, a list of the documents in which it appears.\"",
+  "main": "inverted-index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-oaladeusi/inverted-index.git"
+  },
+  "author": "Aladeusi Olawale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-oaladeusi/inverted-index/issues"
+  },
+  "homepage": "https://github.com/andela-oaladeusi/inverted-index#readme"
+}

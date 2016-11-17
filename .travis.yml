@@ -1,5 +1,5 @@
 language: node_js
 node_js:
  - "stable"
- script: jasmine/spec/inverted-index-test.js
+ script: "jasmine/spec/inverted-index-test.js"
 

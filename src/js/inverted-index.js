@@ -52,7 +52,23 @@ class InvertedIndexClass {
         this.indexName[jsonName] = singleJsonIndex;
     }
 
+    //  Method to get JSON's index' and it takes one parameter, name of selected JSON
+    getIndex(jsonName) {
+        return this.indexName[jsonName];
+    }
 
+    //  Search method, it takes two parameter, term to search and filter's' name
+    searchIndex(term, filterName) {
+        let searchResult = {};
+        let allSearchTerm = term.toLowerCase().match(/\w+/g);
+        let searchSingleJson = this.indexName[filterName];
+        allSearchTerm.forEach(function (eachWord) {
+            if (eachWord in searchSingleJson) {
+                searchResult[eachWord] = searchSingleJson[eachWord];
+            }
+        });
+        return searchResult;
+    }
 
     // method to read file uploaded and validate it 
     getFile(filePath) {

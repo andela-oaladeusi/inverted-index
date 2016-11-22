@@ -34,7 +34,7 @@ class InvertedIndexClass {
             titleTextArray.push(joinTitleText);
         }
 
-        // This loop arrange the index
+       // This loop arrange the index
         for (let index in titleTextArray) {
             titleTextArray[index].forEach(function (key) {
                 if (singleJsonIndex[key]) {

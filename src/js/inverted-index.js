@@ -52,6 +52,35 @@ class InvertedIndexClass {
         this.indexName[jsonName] = singleJsonIndex;
     }
 
+
+
+    // method to read file uploaded and validate it 
+    getFile(filePath) {
+        let _this = this;
+        let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.json)$/;
+        if (regex.test($("#fileUpload").val().toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                let reader = new FileReader();
+                this.fileName = filePath.name;
+                reader.onload = function (e) {
+                    let jUpload = JSON.parse(reader.result);
+                    if (_this.isValidJson(jUpload) && (!_this.isJsonEmpty(jUpload))) {
+                        _this.json.push(jUpload);
+                    }
+                    else {
+                        alert("Invalid Json File");
+                        return;
+                    }
+                };
+                reader.readAsText(filePath);
+            } else {
+                alert("This browser does not support HTML5.");
+            }
+        } else {
+            alert("Please upload a valid JSON file.");
+        }
+    }
+
     // method to validate json content
     validateJsonContent(jUpload) {
         if (jUpload.hasOwnProperty('title') && jUpload.hasOwnProperty('text')) {

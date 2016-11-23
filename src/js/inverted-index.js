@@ -58,7 +58,7 @@ class InvertedIndexClass {
     }
 
     //  Search method, it takes two parameter, term to search and filter's' name
-    searchIndex(term, filterName) {
+  /*  searchIndex(term, filterName) {
         let searchResult = {};
         let allSearchTerm = term.toLowerCase().match(/\w+/g);
         let searchSingleJson = this.indexName[filterName];
@@ -68,7 +68,39 @@ class InvertedIndexClass {
             }
         });
         return searchResult;
+    } */
+
+// Method to search all files
+   searchIndex(term, filterName) {
+       let searchResult={};
+       let allSearchTerm = term.toLowerCase().match(/\w+/g);
+       if(filterName==='all'){
+           for(let key in this.indexName ){
+               console.log(key);
+               let searchResultKey={};
+               let searchSingleJson = this.indexName[key];
+                allSearchTerm.forEach(function (eachWord) {
+                    if (eachWord in searchSingleJson) {
+                        searchResultKey[eachWord] = searchSingleJson[eachWord];
+                     }
+                });
+            searchResult[key]=searchResultKey;
+            }
+            return searchResult;
+            // console.log(searchResult);
+       }
+       else{
+            let searchSingleJson = this.indexName[filterName];
+            allSearchTerm.forEach(function (eachWord) {
+                if (eachWord in searchSingleJson) {
+                    searchResult[eachWord] = searchSingleJson[eachWord];
+                }
+            });
+        return searchResult;
+        // console.log(searchResult);
+       }
     }
+
 
     // method to read file uploaded and validate it 
     getFile(filePath) {

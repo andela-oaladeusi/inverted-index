@@ -11,10 +11,12 @@ If you like this solution, you might also want to check out the 1.0 version:
   margin: 1em 0;
   width: 100%;
   overflow: hidden;
+  height: 400%;
   background: #FFF;
   color: #7b4397;
   border-radius: 10px;
   border: 1px solid #7b4397;
+  max-height: 400%;
 }
 .responstable tr {
   border: 1px solid #D9E4E6;

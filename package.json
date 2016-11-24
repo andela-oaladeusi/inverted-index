@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp",
+    "postinstall": "gulp default",
     "test": "node_modules/karma/bin/karma start karma.config.js --single-run"
   },
   "repository": {

@@ -6,7 +6,8 @@
  * 
  */
 
-//  Main Class
+/**  InvertedIndexClass Main Class
+*/
 class InvertedIndexClass {
 
     /** constructor use to initialize identifier
@@ -17,9 +18,11 @@ class InvertedIndexClass {
     */
     constructor() {
         this.json = null;
-        this.fileName = null; 
-        this.indexName = {};  
-        this.jLength = {}; 
+        this.fileName = null;
+        this.indexName = {};
+        this.jLength = {};
+        this.names = [];
+        this.singleJsonIndex = {};
     }
 
     /**
@@ -28,7 +31,7 @@ class InvertedIndexClass {
     */
     createIndex(jsonArray, jsonName) {
         let titleTextArray = [];
-        let singleJsonIndex = {};
+        // let singleJsonIndex = {};
         this.jLength[jsonName] = jsonArray.length;
 
         /** This accept Json file, and pick all the document in it seperately
@@ -44,21 +47,29 @@ class InvertedIndexClass {
 
         // This loop arrange the index
         for (let index in titleTextArray) {
-            titleTextArray[index].forEach(function (key) {
-                if (singleJsonIndex[key]) {
-                    if (!singleJsonIndex[key][index]) {
-                        singleJsonIndex[key][index] = true;
-                    }
-                } else {
-                    let oneIndex = {};
-                    oneIndex[index] = true;
-                    singleJsonIndex[key] = oneIndex;
-
-                }
-            });
+            this.arrangeIndex(index, titleTextArray);
         }
-        this.indexName[jsonName] = singleJsonIndex;
-        return singleJsonIndex;
+        this.indexName[jsonName] = this.singleJsonIndex;
+        console.log(this.singleJsonIndex);
+        return this.singleJsonIndex;
+    }
+
+    // This method setup index
+    arrangeIndex(index1, titleTextArray1) {
+        let _this = this;
+        titleTextArray1[index1].forEach((key) => {
+            if (_this.singleJsonIndex[key]) {
+                if (!_this.singleJsonIndex[key][index1]) {
+                    _this.singleJsonIndex[key][index1] = true;
+                }
+            } else {
+                let oneIndex = {};
+                oneIndex[index1] = true;
+                _this.singleJsonIndex[key] = oneIndex;
+
+            }
+        });
+
     }
 
     //  Method to get JSON's index' and it takes one parameter, name of selected JSON
@@ -72,10 +83,11 @@ class InvertedIndexClass {
         let allSearchTerm = term.toLowerCase().match(/\w+/g);
         if (filterName === 'all') {
             for (let key in this.indexName) {
+
                 console.log(key);
                 let searchResultKey = {};
                 let searchSingleJson = this.indexName[key];
-                allSearchTerm.forEach(function (eachWord) {
+                allSearchTerm.forEach((eachWord) => {
                     if (eachWord in searchSingleJson) {
                         searchResultKey[eachWord] = searchSingleJson[eachWord];
                     }
@@ -86,7 +98,7 @@ class InvertedIndexClass {
         }
         else {
             let searchSingleJson = this.indexName[filterName];
-            allSearchTerm.forEach(function (eachWord) {
+            allSearchTerm.forEach((eachWord) => {
                 if (eachWord in searchSingleJson) {
                     searchResult[eachWord] = searchSingleJson[eachWord];
                 }
@@ -131,4 +143,5 @@ class InvertedIndexClass {
 }
 
 // Create instance for InvertedIndexClass
+// export let invertedClass=new InvertedIndexClass();
 let invertedClass = new InvertedIndexClass();

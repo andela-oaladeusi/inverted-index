@@ -15,16 +15,16 @@ any document, and for each word, a list of the documents in which it appears.
 ## Inverted Index Example
 Assuming we have the below Book with two document
 
-Book =  {
-           {
-            "title": "Andela",
-            "text": "EPIC and four c"
-            },
-            {
-            "title": "Andela Fellow ",
-            "text": "Four years, TIA."
-            }
-        }
+        Book =  {
+                {
+                    "title": "Andela",
+                    "text": "EPIC and four c"
+                    },
+                    {
+                    "title": "Andela Fellow ",
+                    "text": "Four years, TIA."
+                    }
+                }
 
 To create an inverted index, we first split the content field of each document
 into separate words (which we call terms, or tokens), create a sorted list of

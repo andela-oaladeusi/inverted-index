@@ -1,33 +1,34 @@
 'use strict';
-// let invertedClass = require('inverted-index').invertedClass;
-// import { invertedClass } from "inverted-index.js";
 //  Tick present word document with jquery
 // This function populate the in index table
 let checkIndex = (dataIndex, length, fileName) => {
-    $('#table-head').append('<tr><th>' + fileName + ' file</th>');
+// id: is the name of the file, dataIndex[id]: will each object inside, dataset
+    $('.indexDiv').append('<table id = table_>');
+    $('thead').append('<tr><th>' + fileName + ' file</th>');
     for (let headLoop = 0; headLoop <= length; headLoop++) {
         if (headLoop === 0) {
-            $('#table-head').append('<th>Terms</th>');
+            $('thead').append('<th>Terms</th>');
         }
         else {
-            $('#table-head').append('<th>doc_' + headLoop + '</th>');
+            $('thead').append('<th>doc_' + headLoop + '</th>');
         }
     }
-    $('#table-head').append('</tr>');
+    $('thead').append('</tr>');
     for (let index in dataIndex) {
-        $('#table-body').append('<tr>');
-        $('#table-body').append('<td>' + index + '</td>');
+        $('tbody').append('<tr>');
+        $('tbody').append('<td>' + index + '</td>');
         for (let k = 0; k < length; k++) {
             if (dataIndex[index][k]) {
-                $('#table-body').append('<td>' + '<i class = "fa fa-check"' +
+                $('tbody').append('<td>' + '<i class = "fa fa-check"' +
                     'style = "font-size:15px"></i>' + '</td>');
             } else {
-                $('#table-body').append('<td>' + '<i class = "fa fa-times-circle-o"' +
+                $('tbody').append('<td>' + '<i class = "fa fa-times-circle-o"' +
                     'aria-hidden = "true"></i>' + '</td>');
             }
         }
-        $('#table-body').append('</tr>');
+        $('tbody').append('</tr>');
     }
+    $('.indexDiv').append('</table');
 };
 // On press enter, it will call search function
 $('#search-input').keypress( (e) => {
@@ -54,7 +55,7 @@ let createIndexButton = () => {
         invertedClass.createIndex(invertedClass.json, invertedClass.fileName);
         let fileName = invertedClass.fileName;
         listOfFileName.push(fileName);
-        console.log(listOfFileName);
+        // console.log(listOfFileName);
     
         // dynamically populate dropdown list with uploaded file name
         $.each(listOfFileName, function() {
@@ -102,7 +103,7 @@ let searchFunction = () => {
     let searchValue = $('#search-input').val();
     let filterName = document.getElementById("filter-drop");
     let selectedFilter = filterName.options[filterName.selectedIndex].value;
-    console.log(searchValue, selectedFilter);
+    // console.log(searchValue, selectedFilter);
     let searchResult = invertedClass.searchIndex(searchValue, selectedFilter);
     checkIndex(searchResult, invertedClass.jLength[selectedFilter], selectedFilter);
 

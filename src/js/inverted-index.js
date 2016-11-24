@@ -3,13 +3,10 @@
  * Author's Email: olawale.aladeusi@andela.com
  * Project Title: Inverted index 
  * Date: 21/11/2016
- * 
  */
 
-/**  InvertedIndexClass Main Class
-*/
+// InvertedIndexClass Main Class
 class InvertedIndexClass {
-
     /** constructor use to initialize identifier
      * 'json' array holds our json files
      * fileName: Name of each json file`
@@ -44,19 +41,15 @@ class InvertedIndexClass {
             let joinTitleText = [...new Set([...rawTitleArr, ...rawTextArr])];
             titleTextArray.push(joinTitleText);
         }
-
         // This loop arrange the index
         for (let index in titleTextArray) {
             this.arrangeIndex(index, titleTextArray);
         }
-
         this.indexName[jsonName] = this.singleJsonIndex;
         const singleIndex = this.singleJsonIndex;
         this.singleJsonIndex = {};
         return singleIndex;
-
     }
-
     // This method setup index
     arrangeIndex(index1, titleTextArray1) {
         let _this = this;
@@ -69,23 +62,19 @@ class InvertedIndexClass {
                 let oneIndex = {};
                 oneIndex[index1] = true;
                 _this.singleJsonIndex[key] = oneIndex;
-
             }
         });
     }
-
     //  Method to get JSON's index' and it takes one parameter, name of selected JSON
     getIndex(jsonName) {
         return this.indexName[jsonName];
     }
-
     // Method to search all files
     searchIndex(term, filterName) {
         let searchResult = {};
         let allSearchTerm = term.toLowerCase().match(/\w+/g);
         if (filterName === 'all') {
             for (let key in this.indexName) {
-
                 console.log(key);
                 let searchResultKey = {};
                 let searchSingleJson = this.indexName[key];
@@ -108,7 +97,6 @@ class InvertedIndexClass {
             return searchResult;
         }
     }
-
     // method to validate json content
     validateJsonContent(jUpload) {
         if (jUpload[0].title && jUpload[0].text) {
@@ -117,9 +105,7 @@ class InvertedIndexClass {
         else {
             return false;
         }
-
     }
-
     // Methdo to check if Json is valid or not
     isValidJson(jUpload) {
         if (jUpload && typeof jUpload === "object") {
@@ -131,9 +117,7 @@ class InvertedIndexClass {
         } catch (e) {
             return false;
         }
-
     }
-
     // Method to check if json is empty or not
     isJsonEmpty(jUpload) {
         if (jUpload.length === 0) {
@@ -144,7 +128,5 @@ class InvertedIndexClass {
         }
     }
 }
-
 // Create instance for InvertedIndexClass
-// export let invertedClass=new InvertedIndexClass();
 const invertedClass = new InvertedIndexClass();

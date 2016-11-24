@@ -12,7 +12,6 @@ let checkIndex = (dataIndex, length, fileName) => {
         else {
             $('#table-head').append('<th>doc_' + headLoop + '</th>');
         }
-
     }
     $('#table-head').append('</tr>');
     for (let index in dataIndex) {
@@ -30,8 +29,6 @@ let checkIndex = (dataIndex, length, fileName) => {
         $('#table-body').append('</tr>');
     }
 };
-
-
 // On press enter, it will call search function
 $('#search-input').keypress( (e) => {
     if (e.which === 13) {
@@ -39,12 +36,10 @@ $('#search-input').keypress( (e) => {
         searchFunction();
     }
 });
-
 // json file upload
 document.getElementById('fileUpload').addEventListener('change', (e) => {
     getFile(e.target.files[0]);
 });
-
 // create index button click
 //  $('#create-index').click(function(event){
 let createIndexButton = () => {
@@ -52,9 +47,7 @@ let createIndexButton = () => {
         alert("Upload a file");
         return;
     }
-
     let checkName = checkExistName();
-
     if (checkName) {
         let listOfFileName = [];
         invertedClass.names.push(invertedClass.fileName);
@@ -62,8 +55,8 @@ let createIndexButton = () => {
         let fileName = invertedClass.fileName;
         listOfFileName.push(fileName);
         console.log(listOfFileName);
+    
         // dynamically populate dropdown list with uploaded file name
-        
         $.each(listOfFileName, function() {
             options.append($("<option />").val(this).text(this));
         });
@@ -105,8 +98,6 @@ let deleteTable = () => {
     $('.responstable th').remove();
     $('.responstable td').remove();
 };
-
-
 let searchFunction = () => {
     let searchValue = $('#search-input').val();
     let filterName = document.getElementById("filter-drop");
@@ -116,7 +107,6 @@ let searchFunction = () => {
     checkIndex(searchResult, invertedClass.jLength[selectedFilter], selectedFilter);
 
 };
-
 let getFile = (filePath) => {
     let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.json)$/;
     if (regex.test($("#fileUpload").val().toLowerCase())) {
@@ -141,7 +131,6 @@ let getFile = (filePath) => {
         alert("Please upload a valid JSON file.");
     }
 };
-
 let checkExistName = () => {
     invertedClass.names.forEach((name) => {
         if (name === invertedClass.fileName) {

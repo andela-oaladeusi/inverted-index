@@ -18,6 +18,7 @@
     "karma-jasmine": "^1.0.2"
   },
   "scripts": {
+    "start": "node node_modules/gulp/bin/gulp",
     "test": "node_modules/karma/bin/karma start karma.config.js --single-run"
   },
   "repository": {

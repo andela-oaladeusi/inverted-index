@@ -1,8 +1,8 @@
 'use strict';
 // import { invertedClass } from "../src/js/inverted.index.js";
-let invertedIndexTest = new InvertedIndexClass();
+const invertedIndexTest = new InvertedIndexClass();
 
-describe("Inverted Index Test Suites", function () {
+describe("Inverted Index Test Suites", () => {
   // Initialize constants to be use for testing
   const books = [
     {
@@ -52,68 +52,72 @@ describe("Inverted Index Test Suites", function () {
   let readindex2 = invertedIndexTest.createIndex(books2, "booksjson2");
   let jsonindex2 = invertedIndexTest.getIndex('booksjson2');
 
-  describe("Read book data", function () {
+  describe("Read book data", () => {
 
-    it("Should return be a valid JSON Array", function () {
+    it("Should return be a valid JSON Array", () => {
       expect(invertedIndexTest.isValidJson(books)).toBeTruthy();
     });
 
     it("Should return an invalid JSON Array when parameter is 'invalidJson'",
-     function () {
+      () => {
       expect(invertedIndexTest.isValidJson(invalidJson)).toBeFalsy();
     });
 
-    it("Should return true, when our parameter is 'emptyBook'", function () {
+    it("Should return true, when our parameter is 'emptyBook'", () => {
       expect(invertedIndexTest.isJsonEmpty(emptyBook)).toBeTruthy();
     });
 
-    it("Should return true JSON array is not empty", function () {
+    it("Should return true JSON array is not empty", () => {
       expect(invertedIndexTest.isJsonEmpty(books)).toBeFalsy();
     });
 
     it("Should return false, when json contents is not properly formatted", 
-    function () {expect(invertedIndexTest.validateJsonContent(wrongFomatBook))
+     () => {expect(invertedIndexTest.validateJsonContent(wrongFomatBook))
       .toBeFalsy();
     });
   });
 
-  describe("Populate Index", function () {
-    it("Index should be created after reading json file", function () {
+  describe("This test suite test different populating index test scenario", () => {
+    it("Should create an index after reading json file", () => {
       expect(typeof readindex).toEqual('object');
     });
 
-    it("Index should be created after reading json file for the second json",
-     function () {
+    it("Should return an object upon reading a second json file",
+     () => {
       expect(typeof readindex2).toEqual('object');
     });
 
-    it("It should return correct index", function () {
+    it("Should return correct index when alice key is pass", () => {
       expect(jsonindex.alice).toEqual({ 0: true });
     });
 
-    it("It should return correct index when passing 'and'", function () {
+    it("Should return correct index when passing 'and'", () => {
       expect(jsonindex.and).toEqual({ 0: true, 1: true });
     });
 
-    it("Ensures index is correct using another json file", function () {
+    it("Should result correct index upon reading another json file", () => {
       expect(jsonindex2.alice).toEqual({ 0: true, 2: true });
     });
 
   });
 
-describe("Search Index", function () {
-    it("It should return the correct search index for just one single file",
-     function () {
+describe("This test Suite test different search index test scenario",
+ () => {
+    it('Should return the correct search index for just one single file '+
+    'if "booksjson" file is selected',
+     () => {
       expect(invertedIndexTest.searchIndex('alice and', 'booksjson')).toEqual(
         { alice: { 0: true }, and: { 0: true, 1: true } });
     });
 
-    it("It should return the correct search index for all files", function () {
+    it('Should return the correct search index for all files when'+
+    'searching for "alice and"', () => {
       expect(invertedIndexTest.searchIndex('alice and', 'all')).toEqual(
         {booksjson: {alice: {0: true}, 
       and: {0: true, 1: true}},booksjson2: {alice: {0: true, 2: true}, 
       and: {0: true, 1: true, 2: true, 3: true}}
       });
+      
     });
 
   });

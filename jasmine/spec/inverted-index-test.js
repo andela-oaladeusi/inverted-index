@@ -1,4 +1,5 @@
 'use strict';
+// import { invertedClass } from "../src/js/inverted.index.js";
 let invertedIndexTest = new InvertedIndexClass();
 
 describe("Inverted Index Test Suites", function () {

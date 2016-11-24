@@ -45,10 +45,10 @@ The result looks something like this:
 Now, if we want to search for andela fellow, we just need to find the documents
 in which each term appears:
 
-Term      Doc_1  Doc_2
--------------------------
-andela  |   +   |  +
-fellow  |   +   |
+    Term      Doc_1  Doc_2
+    -------------------------
+    andela  |   +   |  +
+    fellow  |   +   |
 
 
 ## Features

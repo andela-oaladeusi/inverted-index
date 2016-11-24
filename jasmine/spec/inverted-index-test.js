@@ -1,7 +1,5 @@
 'use strict';
-// import { invertedClass } from "../src/js/inverted.index.js";
 const invertedIndexTest = new InvertedIndexClass();
-
 describe("Inverted Index Test Suites", () => {
   // Initialize constants to be use for testing
   const books = [
@@ -46,14 +44,12 @@ describe("Inverted Index Test Suites", () => {
   ];
 
   const invalidJson = " 'wale','deji','ola', 'andela','class' ";
-
   let readindex = invertedIndexTest.createIndex(books, "booksjson");
   let jsonindex = invertedIndexTest.getIndex('booksjson');
   let readindex2 = invertedIndexTest.createIndex(books2, "booksjson2");
   let jsonindex2 = invertedIndexTest.getIndex('booksjson2');
 
   describe("Read book data", () => {
-
     it("Should return be a valid JSON Array", () => {
       expect(invertedIndexTest.isValidJson(books)).toBeTruthy();
     });

@@ -4,7 +4,7 @@
 //  Tick present word document with jquery
 // This function populate the in index table
 let checkIndex = (dataIndex, length, fileName) => {
-    $('#table-head').append('<tr><th>' + fileName + ' file</th>')
+    $('#table-head').append('<tr><th>' + fileName + ' file</th>');
     for (let headLoop = 0; headLoop <= length; headLoop++) {
         if (headLoop === 0) {
             $('#table-head').append('<th>Terms</th>');
@@ -120,7 +120,7 @@ let searchFunction = () => {
 let getFile = (filePath) => {
     let regex = /^([a-zA-Z0-9\s_\\.\-:])+(.json)$/;
     if (regex.test($("#fileUpload").val().toLowerCase())) {
-        if (typeof (FileReader) != "undefined") {
+        if (typeof (FileReader) !== "undefined") {
             let reader = new FileReader();
             invertedClass.fileName = filePath.name;
             reader.onload =  (e) => {
@@ -130,7 +130,7 @@ let getFile = (filePath) => {
                         invertedClass.json = jUpload;
                     }
                 } else {
-                    alert("Invalid JSON FILE")
+                    alert("Invalid JSON FILE");
                 }
             };
             reader.readAsText(filePath);

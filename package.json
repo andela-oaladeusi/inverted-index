@@ -18,7 +18,7 @@
     "karma-jasmine": "^1.0.2"
   },
   "scripts": {
-    "test": "jasmine spec"
+    "test": "node_modules/karma/bin/karma start karma.config.js --single-run"
   },
   "repository": {
     "type": "git",

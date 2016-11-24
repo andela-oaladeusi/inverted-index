@@ -24,3 +24,5 @@ gulp.task('watch', ['browserSync'], function (){
   gulp.watch(['src/css/**/*.css','src/*.html','src/js/**/*.js','jasmine/spec/**/*.js'],browserSync.reload); 
 
 });
+
+gulp.task('default', ['watch']);

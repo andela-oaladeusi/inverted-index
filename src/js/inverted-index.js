@@ -49,9 +49,12 @@ class InvertedIndexClass {
         for (let index in titleTextArray) {
             this.arrangeIndex(index, titleTextArray);
         }
+
         this.indexName[jsonName] = this.singleJsonIndex;
-        console.log(this.singleJsonIndex);
-        return this.singleJsonIndex;
+        const singleIndex = this.singleJsonIndex;
+        this.singleJsonIndex = {};
+        return singleIndex;
+
     }
 
     // This method setup index
@@ -69,7 +72,6 @@ class InvertedIndexClass {
 
             }
         });
-
     }
 
     //  Method to get JSON's index' and it takes one parameter, name of selected JSON
@@ -125,10 +127,11 @@ class InvertedIndexClass {
         }
         try {
             jUpload = JSON.parse(jUpload);
+            return true;
         } catch (e) {
             return false;
         }
-        return true;
+
     }
 
     // Method to check if json is empty or not
@@ -144,4 +147,4 @@ class InvertedIndexClass {
 
 // Create instance for InvertedIndexClass
 // export let invertedClass=new InvertedIndexClass();
-let invertedClass = new InvertedIndexClass();
+const invertedClass = new InvertedIndexClass();

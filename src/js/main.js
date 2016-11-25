@@ -113,12 +113,18 @@ let getFile = (filePath) => {
     if (regex.test($("#fileUpload").val().toLowerCase())) {
         if (typeof (FileReader) !== "undefined") {
             let reader = new FileReader();
-            invertedClass.fileName = filePath.name;
             reader.onload =  (e) => {
                 let jUpload = JSON.parse(reader.result);
                 if (invertedClass.isValidJson(reader.result)) {
-                    if (!invertedClass.isJsonEmpty(jUpload)) {
+                    if (!invertedClass.isJsonEmpty(jUpload)&& 
+                    invertedClass.validateJsonContent(jUpload)) {
                         invertedClass.json = jUpload;
+                        invertedClass.fileName = filePath.name;
+                    }
+                    else{
+                        alert('Invalid Json Content');
+                        setInputEmpty();
+                        return;
                     }
                 } else {
                     alert("Invalid JSON FILE");
@@ -135,6 +141,7 @@ let getFile = (filePath) => {
 let checkExistName = () => {
     invertedClass.names.forEach((name) => {
         if (name === invertedClass.fileName) {
+            alert('file already exist');
             throw new Error("Something went badly wrong!");
         }
     });

@@ -27,6 +27,10 @@ class InvertedIndexClass {
      * It accept two parameters, Json file and the name of the Json file
     */
     createIndex(jsonArray, jsonName) {
+        if (!this.validateJsonContent(jsonArray)) {
+            alert("Invalid Json Content");
+            return;
+        }
         let titleTextArray = [];
         // let singleJsonIndex = {};
         this.jLength[jsonName] = jsonArray.length;
@@ -75,7 +79,6 @@ class InvertedIndexClass {
         let allSearchTerm = term.toLowerCase().match(/\w+/g);
         if (filterName === 'all') {
             for (let key in this.indexName) {
-                console.log(key);
                 let searchResultKey = {};
                 let searchSingleJson = this.indexName[key];
                 allSearchTerm.forEach((eachWord) => {
@@ -99,10 +102,13 @@ class InvertedIndexClass {
     }
     // method to validate json content
     validateJsonContent(jUpload) {
-        if (jUpload[0].title && jUpload[0].text) {
-            return true;
-        }
-        else {
+        try {
+            if (jUpload[0].title && jUpload[0].text) {
+                return true;
+            } else{
+                return false;
+            }
+        } catch (e) {
             return false;
         }
     }

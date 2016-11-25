@@ -4,8 +4,8 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
 /**
- * Sett up browserSync to our server directory,
- *  which our root directory in this case "src"
+ * Setup browserSync to our server directory,
+ *  which our directory in this case is "src"
  */
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -20,7 +20,7 @@ gulp.task('browserSync', function() {
  *  whenever changes are been made to js, html, and css files
  */
 gulp.task('watch', ['browserSync'], function (){
-  // Reloads the browser whenever HTML or JS files change
+  // Reloads the browser whenever HTML, CSS or JS files change
   gulp.watch(['src/css/**/*.css','src/*.html','src/js/**/*.js','jasmine/spec/**/*.js'],browserSync.reload); 
 
 });

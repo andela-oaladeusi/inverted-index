@@ -60,3 +60,6 @@ in which each term appears:
   - Node.js
   - EchmaScript 6 (JavaScript 2015)
   - Jquery-3.1.1.js
+  - Jasmine (Test Runner)
+  - Travis CI (For Continous Integration and badge)
+  - Coveralls (To compute Test Coverage % and badge)

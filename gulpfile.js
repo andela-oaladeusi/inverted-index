@@ -11,7 +11,8 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: 'src',
-      port: process.env.PORT || 5000
+      port: process.env.PORT || 5000,
+      open: false
     }
   });
 });
@@ -24,14 +25,6 @@ gulp.task('watch', ['browserSync'], function (){
   // Reloads the browser whenever HTML, CSS or JS files change
   gulp.watch(['src/css/**/*.css','src/*.html','src/js/**/*.js','jasmine/spec/**/*.js'],browserSync.reload); 
 
-});
-
-gulp.task('serveprod', function() {
-  connect.server({
-    root: 'src',
-    port: process.env.PORT || 5000,
-    livereload: false
-  });
 });
 
 gulp.task('default', ['watch']);

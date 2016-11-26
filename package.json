@@ -4,9 +4,14 @@
   "description": "\"Inverted index is designed to allow very fast full-text searches. An inverted index consists of a list of all the unique words that appear in any documents, and for each word in the document, a list of the documents in which it appears.\"",
   "main": "inverted-index.js",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "browser-sync": "^2.18.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "jasmine-core": "^2.5.2",
+    "multer": "^1.2.0",
     "browser-sync": "^2.18.1"
   },
   "devDependencies": {

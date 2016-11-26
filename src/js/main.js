@@ -2,7 +2,7 @@
 //  Tick present word document with jquery
 // This function populate the in index table
 let checkIndex = (dataIndex, length, fileName) => {
-// id: is the name of the file, dataIndex[id]: will each object inside, dataset
+    // id: is the name of the file, dataIndex[id]: will each object inside, dataset
     $('.indexDiv').append('<table id = table_>');
     $('thead').append('<tr><th>' + fileName + ' file</th>');
     for (let headLoop = 0; headLoop <= length; headLoop++) {
@@ -31,7 +31,7 @@ let checkIndex = (dataIndex, length, fileName) => {
     $('.indexDiv').append('</table');
 };
 // On press enter, it will call search function
-$('#search-input').keypress( (e) => {
+$('#search-input').keypress((e) => {
     if (e.which === 13) {
         deleteTable();
         searchFunction();
@@ -42,7 +42,6 @@ document.getElementById('fileUpload').addEventListener('change', (e) => {
     getFile(e.target.files[0]);
 });
 // create index button click
-//  $('#create-index').click(function(event){
 let createIndexButton = () => {
     if (document.getElementById('fileUpload').value === "") {
         alert("Upload a file");
@@ -55,14 +54,13 @@ let createIndexButton = () => {
         invertedClass.createIndex(invertedClass.json, invertedClass.fileName);
         let fileName = invertedClass.fileName;
         listOfFileName.push(fileName);
-        // console.log(listOfFileName);
-    
+
         // dynamically populate dropdown list with uploaded file name
-        $.each(listOfFileName, function() {
+        $.each(listOfFileName, function () {
             options.append($("<option />").val(this).text(this));
         });
 
-        $.each(listOfFileName, function() {
+        $.each(listOfFileName, function () {
             indexListOptions.append($("<option />").val(this).text(this));
         });
 
@@ -71,7 +69,7 @@ let createIndexButton = () => {
             invertedClass.jLength[fileName], fileName, setInputEmpty());
         invertedClass.json = null;
         invertedClass.fileName = null;
-        invertedClass.singleJsonIndex={};
+        invertedClass.singleJsonIndex = {};
     }
 
 };
@@ -103,7 +101,6 @@ let searchFunction = () => {
     let searchValue = $('#search-input').val();
     let filterName = document.getElementById("filter-drop");
     let selectedFilter = filterName.options[filterName.selectedIndex].value;
-    // console.log(searchValue, selectedFilter);
     let searchResult = invertedClass.searchIndex(searchValue, selectedFilter);
     checkIndex(searchResult, invertedClass.jLength[selectedFilter], selectedFilter);
 
@@ -113,15 +110,15 @@ let getFile = (filePath) => {
     if (regex.test($("#fileUpload").val().toLowerCase())) {
         if (typeof (FileReader) !== "undefined") {
             let reader = new FileReader();
-            reader.onload =  (e) => {
+            reader.onload = (e) => {
                 let jUpload = JSON.parse(reader.result);
                 if (invertedClass.isValidJson(reader.result)) {
-                    if (!invertedClass.isJsonEmpty(jUpload)&& 
-                    invertedClass.validateJsonContent(jUpload)) {
+                    if (!invertedClass.isJsonEmpty(jUpload) &&
+                        invertedClass.validateJsonContent(jUpload)) {
                         invertedClass.json = jUpload;
                         invertedClass.fileName = filePath.name;
                     }
-                    else{
+                    else {
                         alert('Invalid Json Content');
                         setInputEmpty();
                         return;

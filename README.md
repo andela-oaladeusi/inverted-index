@@ -56,6 +56,31 @@ in which each term appears:
   - Find a particular index from each files.
   - Full text search of created indexes.
 
+
+## How to use
+
+    Web use
+    URL: https://invert-index.herokuapp.com/. 
+    
+    It can also be used locally by following the steps below
+
+    Local Machine
+
+    git clone git@github.com:andela-oaladeusi/inverted-index.git
+
+    Change directory into inverted-index and follow the steps below.
+
+    - Install Node js
+
+    - Install all the dependencies:
+        npm install
+
+    Run Tests for the application with:
+        npm test
+
+    Start the Application with:
+        npm start
+
 ## Technologies
   - Node.js
   - EchmaScript 6 (JavaScript 2015)

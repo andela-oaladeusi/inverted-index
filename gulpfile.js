@@ -10,10 +10,10 @@ const browserSync = require('browser-sync').create();
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'src',
+      baseDir: 'src'
+    },
       port: process.env.PORT || 5000,
       open: false
-    }
   });
 });
 

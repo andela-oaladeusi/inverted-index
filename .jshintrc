@@ -17,6 +17,8 @@
     "requirejs": true,
     "require": true,
     "console": true,
-    "jasmineRequire": true
-}
+    "jasmineRequire": true,
+    "$": false,
+    "jquery": true
+  }
 }

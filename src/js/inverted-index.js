@@ -1,138 +1,178 @@
 'use strict';
-/**Project Author: Aladeusi Olawale Author
- * Author's Email: olawale.aladeusi@andela.com
- * Project Title: Inverted index 
- * Date: 21/11/2016
+/**
+ * InvertedIndexClass class constructor
+ * @class
  */
-
-// InvertedIndexClass Main Class
 class InvertedIndexClass {
-    /** constructor use to initialize identifier
-     * 'json' array holds our json files
-     * fileName: Name of each json file`
-     * it will hold all json index for different json files
-     * jLength : it will keep the length of each json file map up with there names
-    */
-    constructor() {
-        this.json = null;
-        this.fileName = null;
-        this.indexName = {};
-        this.jLength = {};
-        this.names = [];
-        this.singleJsonIndex = {};
-    }
 
-    /**
-     * Create Index method, the method is use to generate the index for a json file
-     * It accept two parameters, Json file and the name of the Json file
-    */
-    createIndex(jsonArray, jsonName) {
-        if (!this.validateJsonContent(jsonArray)) {
-            alert("Invalid Json Content");
-            return;
-        }
-        let titleTextArray = [];
-        // let singleJsonIndex = {};
-        this.jLength[jsonName] = jsonArray.length;
+	/**
+	 * class constructor
+	 * @constructor
+	 */
+	constructor() {
+		this.json = null;
+		this.fileName = null;
+		this.allFileIndex = {};
+		this.jLength = {};
+		this.names = [];
+		this.singleJsonIndex = {};
+	}
 
-        /** This accept Json file, and pick all the document in it seperately
-         * merging text and title key of the document for each iteration
-         */
-        for (let index in jsonArray) {
-            let documentArray = jsonArray[index];
-            let rawTitleArr = documentArray.title.toLowerCase().match(/\w+/g);
-            let rawTextArr = documentArray.text.toLowerCase().match(/\w+/g);
-            let joinTitleText = [...new Set([...rawTitleArr, ...rawTextArr])];
-            titleTextArray.push(joinTitleText);
-        }
-        // This loop arrange the index
-        for (let index in titleTextArray) {
-            this.arrangeIndex(index, titleTextArray);
-        }
-        this.indexName[jsonName] = this.singleJsonIndex;
-        const singleIndex = this.singleJsonIndex;
-        this.singleJsonIndex = {};
-        return singleIndex;
-    }
-    // This method setup index
-    arrangeIndex(index1, titleTextArray1) {
-        let _this = this;
-        titleTextArray1[index1].forEach((key) => {
-            if (_this.singleJsonIndex[key]) {
-                if (!_this.singleJsonIndex[key][index1]) {
-                    _this.singleJsonIndex[key][index1] = true;
-                }
-            } else {
-                let oneIndex = {};
-                oneIndex[index1] = true;
-                _this.singleJsonIndex[key] = oneIndex;
-            }
-        });
-    }
-    //  Method to get JSON's index' and it takes one parameter, name of selected JSON
-    getIndex(jsonName) {
-        return this.indexName[jsonName];
-    }
-    // Method to search all files
-    searchIndex(term, filterName) {
-        let searchResult = {};
-        let allSearchTerm = term.toLowerCase().match(/\w+/g);
-        if (filterName === 'all') {
-            for (let key in this.indexName) {
-                let searchResultKey = {};
-                let searchSingleJson = this.indexName[key];
-                allSearchTerm.forEach((eachWord) => {
-                    if (eachWord in searchSingleJson) {
-                        searchResultKey[eachWord] = searchSingleJson[eachWord];
-                    }
-                });
-                searchResult[key] = searchResultKey;
-            }
-            return searchResult;
-        }
-        else {
-            let searchSingleJson = this.indexName[filterName];
-            allSearchTerm.forEach((eachWord) => {
-                if (eachWord in searchSingleJson) {
-                    searchResult[eachWord] = searchSingleJson[eachWord];
-                }
-            });
-            return searchResult;
-        }
-    }
-    // method to validate json content
-    validateJsonContent(jUpload) {
-        try {
-            if (jUpload[0].title && jUpload[0].text) {
-                return true;
-            } else{
-                return false;
-            }
-        } catch (e) {
-            return false;
-        }
-    }
-    // Methdo to check if Json is valid or not
-    isValidJson(jUpload) {
-        if (jUpload && typeof jUpload === "object") {
-            return true;
-        }
-        try {
-            jUpload = JSON.parse(jUpload);
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
-    // Method to check if json is empty or not
-    isJsonEmpty(jUpload) {
-        if (jUpload.length === 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+	/**
+	 * Create index
+	 * @function
+	 * @param {Array} jsonArray
+	 * @param {string} jsonName
+	 * @return {Object} singleIndex
+	 */
+	createIndex(jsonArray, jsonName) {
+
+		if (!this.validateJsonContent(jsonArray)) {
+			alert("Invalid Json Content");
+			return;
+		}
+
+		let titleTextArray = [];
+
+		this.jLength[jsonName] = jsonArray.length;
+
+		// This iteration will merge both title and text property of each files
+		for (let countFile in jsonArray) {
+			let documentArray = jsonArray[countFile];
+			let rawTitleArr = documentArray.title.toLowerCase().match(/\w+/g);
+			let rawTextArr = documentArray.text.toLowerCase().match(/\w+/g);
+			let joinTitleText = [...new Set([...rawTitleArr, ...rawTextArr])];
+			titleTextArray.push(joinTitleText);
+		}
+
+		// This iteration will arrange the index 
+		for (let countFile in titleTextArray) {
+			this.arrangeIndex(countFile, titleTextArray);
+		}
+
+		this.allFileIndex[jsonName] = this.singleJsonIndex;
+		const singleIndex = this.singleJsonIndex;
+		this.singleJsonIndex = {};
+
+		return singleIndex;
+	}
+
+	/**
+	 * arrange index
+	 * @function
+	 * @param {Integer} countFile
+	 * @param {Array} titleTextArray
+	 */
+	arrangeIndex(countFile, titleTextArray) {
+		let _this = this;
+
+		titleTextArray[countFile].forEach((key) => {
+			if (_this.singleJsonIndex[key]) {
+				if (!_this.singleJsonIndex[key][countFile]) {
+					_this.singleJsonIndex[key][countFile] = true;
+				}
+			} else {
+				let oneIndex = {};
+				oneIndex[countFile] = true;
+				_this.singleJsonIndex[key] = oneIndex;
+			}
+		});
+
+	}
+
+	/**
+ * Get a particular index
+ * @function
+ * @param {String} jsonName
+ * @return {Object}
+ */
+	getIndex(jsonName) {
+		return this.allFileIndex[jsonName];
+	}
+
+	/**
+ * Search Index.
+ * @function
+ * @param {String} query query string
+ * @param {String} filterName name of index to be searched.
+ * @return {Object} searchResult 
+ */
+	searchIndex(query, filterName) {
+		let searchResult = {};
+		const allSearchQuery = query.toLowerCase().match(/\w+/g);
+
+		if (filterName === 'all') {
+			for (let key in this.allFileIndex) {
+				let searchResultKey = {};
+				let searchSingleJson = this.allFileIndex[key];
+
+				allSearchQuery.forEach((eachQuery) => {
+					if (eachQuery in searchSingleJson) {
+						searchResultKey[eachQuery] = searchSingleJson[eachQuery];
+					} else {
+						searchResultKey[eachQuery] = { 0: false };
+					}
+				});
+				searchResult[key] = searchResultKey;
+			}
+			return searchResult;
+		}
+		else {
+			let searchSingleJson = this.allFileIndex[filterName];
+			allSearchQuery.forEach((eachQuery) => {
+				if (eachQuery in searchSingleJson) {
+					searchResult[eachQuery] = searchSingleJson[eachQuery];
+				} else {
+					searchResult[eachQuery] = { 0: false };
+				}
+
+			});
+			return searchResult;
+		}
+	}
+
+	/**
+* validateJsonContent.
+* @function
+* @param {Object} jUpload
+* @return {Boolean} true or false 
+*/
+	validateJsonContent(jUpload) {
+		try {
+			return jUpload[0].title && jUpload[0].text ? true : false;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	/**
+* isValidJson
+* @function
+* @param {Object} jUpload
+* @return {Boolean} true or false 
+*/
+	isValidJson(jUpload) {
+		if (jUpload && typeof jUpload === "object") {
+			return true;
+		}
+		try {
+			jUpload = JSON.parse(jUpload);
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	/**
+* isJsonEmpty
+* @function
+* @param {Object} jUpload
+* @return {Boolean} true or false 
+*/
+	isJsonEmpty(jUpload) {
+		return jUpload.length === 0 ? true : false;
+	}
 }
+
 // Create instance for InvertedIndexClass
 const invertedClass = new InvertedIndexClass();

@@ -221,3 +221,10 @@ input{
 #filter-drop{
     margin-top: 5px;
 }
+.indexDiv{
+	color: white;
+}
+#titleHeader {
+		font-size: 1.23em;
+		font-weight: bold;
+}

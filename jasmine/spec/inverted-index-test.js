@@ -56,8 +56,8 @@ describe("Inverted Index Test Suites", () => {
 
     it("Should return an invalid JSON Array when parameter is 'invalidJson'",
       () => {
-      expect(invertedIndexTest.isValidJson(invalidJson)).toBeFalsy();
-    });
+        expect(invertedIndexTest.isValidJson(invalidJson)).toBeFalsy();
+      });
 
     it("Should return true, when our parameter is 'emptyBook'", () => {
       expect(invertedIndexTest.isJsonEmpty(emptyBook)).toBeTruthy();
@@ -67,10 +67,11 @@ describe("Inverted Index Test Suites", () => {
       expect(invertedIndexTest.isJsonEmpty(books)).toBeFalsy();
     });
 
-    it("Should return false, when json contents is not properly formatted", 
-     () => {expect(invertedIndexTest.validateJsonContent(wrongFomatBook))
-      .toBeFalsy();
-    });
+    it("Should return false, when json contents is not properly formatted",
+      () => {
+        expect(invertedIndexTest.validateJsonContent(wrongFomatBook))
+          .toBeFalsy();
+      });
   });
 
   describe("This test suite test different populating index test scenario", () => {
@@ -79,9 +80,9 @@ describe("Inverted Index Test Suites", () => {
     });
 
     it("Should return an object upon reading a second json file",
-     () => {
-      expect(typeof readindex2).toEqual('object');
-    });
+      () => {
+        expect(typeof readindex2).toEqual('object');
+      });
 
     it("Should return correct index when alice key is pass", () => {
       expect(jsonindex.alice).toEqual({ 0: true });
@@ -97,25 +98,30 @@ describe("Inverted Index Test Suites", () => {
 
   });
 
-describe("This test Suite test different search index test scenario",
- () => {
-    it('Should return the correct search index for just one single file '+
-    'if "booksjson" file is selected',
-     () => {
-      expect(invertedIndexTest.searchIndex('alice and', 'booksjson')).toEqual(
-        { alice: { 0: true }, and: { 0: true, 1: true } });
-    });
+  describe("This test Suite test different search index test scenario",
+    () => {
+      it('Should return the correct search index for just one single file ' +
+        'if "booksjson" file is selected',
+        () => {
+          expect(invertedIndexTest.searchIndex('alice and', 'booksjson')).toEqual(
+            { alice: { 0: true }, and: { 0: true, 1: true } });
+        });
 
-    it('Should return the correct search index for all files when'+
-    'searching for "alice and"', () => {
-      expect(invertedIndexTest.searchIndex('alice and', 'all')).toEqual(
-        {booksjson: {alice: {0: true}, 
-      and: {0: true, 1: true}},booksjson2: {alice: {0: true, 2: true}, 
-      and: {0: true, 1: true, 2: true, 3: true}}
-      });
-      
-    });
+      it('Should return the correct search index for all files when' +
+        'searching for "alice and"', () => {
+          expect(invertedIndexTest.searchIndex('alice and', 'all')).toEqual(
+            {
+              booksjson: {
+                alice: { 0: true },
+                and: { 0: true, 1: true }
+              }, booksjson2: {
+                alice: { 0: true, 2: true },
+                and: { 0: true, 1: true, 2: true, 3: true }
+              }
+            });
 
-  });
+        });
+
+    });
 
 });

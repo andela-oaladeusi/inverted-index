@@ -12,7 +12,11 @@ module.exports = function (config) {
     frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
-    files: [
+    files: ["jasmine/invalid.doc",
+			"jasmine/bookwrongformat.json",
+			"jasmine/bookempty.json",
+			"jasmine/books3.json",
+			"jasmine/books.json",
       "src/js/inverted-index.js",
       "jasmine/spec/inverted-index-test.js"
     ],

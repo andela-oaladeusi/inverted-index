@@ -1,18 +1,18 @@
 *{
 	/* Universal reset: */
-	margin:0;
+  margin:0;
 	padding:0;
 }
 
 a, a:visited {
-    color:#ffffff;
+  color:#ffffff;
 	text-decoration:none;
 	outline:none;
 }
 
 h1{
 	/* The logo text */
-	font-size:3.5em;
+  font-size:3.5em;
 	padding:0.5em 0 0;
 	text-transform:uppercase;
 	color: #7b4397;
@@ -25,15 +25,15 @@ h2{
 	text-transform:uppercase;
 }
 h3{
-    color: white;
-    margin-left: 25px;
+  color: white;
+  margin-left: 25px;
 }
 #titleOption{
-    margin-left: 520px;
+  margin-left: 520px;
 }
 
 .line{
-	height:1px;
+  height:1px;
 	background-color:#24404c;
 	border-bottom:1px solid #416371;
 	margin:1em 0;
@@ -45,7 +45,7 @@ footer .line{
 }
 
 .clear:after{
-	content: ".";
+  content: ".";
 	display: block;
 	height: 0;
 	clear: both;
@@ -63,17 +63,17 @@ article{
 	background: url("../img/bg-pattern.png"), #7b4397;
 }
 body {
-    font-size: 0.825em;
-    color: #fcfcfc;
-    background-color: #0a495d;
-    font-family: Arial, Helvetica, sans-serif;
-    background: url("../img/bg-cta.jpg"), #0a495d;
+  font-size: 0.825em;
+  color: #fcfcfc;
+  background-color: #0a495d;
+  font-family: Arial, Helvetica, sans-serif;
+  background: url("../img/bg-cta.jpg"), #0a495d;
 }
 article,figure {
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    color: #ffffff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  color: #ffffff;
 }
 footer{
 	margin-bottom:30px;
@@ -86,36 +86,36 @@ footer p{
 	color: #7b4397;
 }
 input{
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    float: left;
-    z-index: auto;
-    width: 50%;
-    height: auto;
-    position: static;
-    cursor: default;
-    opacity: 1;
-    margin: 20px;
-    padding: 10px 20px;
-    overflow: visible;
-    border: 1px solid #b7b7b7;
-    font: normal 15px/normal "Times New Roman", Times, serif;
-    color: rgba(86,0,132,1);
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    background: rgba(252,252,252,1);
-    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -webkit-transform: none;
-    transform: none;
-    -webkit-transform-origin: 50% 50% 0;
-    transform-origin: 50% 50% 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  float: left;
+  z-index: auto;
+  width: 50%;
+  height: auto;
+  position: static;
+  cursor: default;
+  opacity: 1;
+  margin: 20px;
+  padding: 10px 20px;
+  overflow: visible;
+  border: 1px solid #b7b7b7;
+  font: normal 15px/normal "Times New Roman", Times, serif;
+  color: rgba(86,0,132,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(252,252,252,1);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
 }
 #fileUpload{
 	width: auto;
@@ -125,106 +125,106 @@ input{
 	color: #7b4397;
 }
 #create-index{
-    background: #7b4397;
-    background-image: -webkit-linear-gradient(top, #7b4397, #7b4397);
-    background-image: -moz-linear-gradient(top, #7b4397, #7b4397);
-    background-image: -ms-linear-gradient(top, #7b4397, #7b4397);
-    background-image: -o-linear-gradient(top, #7b4397, #7b4397);
-    background-image: linear-gradient(to bottom, #7b4397, #7b4397);
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0px;
-    text-shadow: 5px 0px 30px #666666;
-    -webkit-box-shadow: 5px 5px 10px #666666;
-    -moz-box-shadow: 5px 5px 10px #666666;
-    box-shadow: 5px 5px 10px #666666;
-    font-family: Arial;
-    color: #ffffff;
-    text-decoration: none;
-    width: auto;
-    margin-left: 10px;
+  background: #7b4397;
+  background-image: -webkit-linear-gradient(top, #7b4397, #7b4397);
+  background-image: -moz-linear-gradient(top, #7b4397, #7b4397);
+  background-image: -ms-linear-gradient(top, #7b4397, #7b4397);
+  background-image: -o-linear-gradient(top, #7b4397, #7b4397);
+  background-image: linear-gradient(to bottom, #7b4397, #7b4397);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  text-shadow: 5px 0px 30px #666666;
+  -webkit-box-shadow: 5px 5px 10px #666666;
+  -moz-box-shadow: 5px 5px 10px #666666;
+  box-shadow: 5px 5px 10px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  text-decoration: none;
+  width: auto;
+  margin-left: 10px;
 }
 
 #upload:hover{
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
 
 #search-input {
-	float: left;
-    width: auto;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('search-icon.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  float: left;
+  width: auto;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('search-icon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 #search-input:focus {
-    width: auto;
+  width: auto;
 }
 
 #search-expand{
 	width: auto;
 }
 #uploadDiv{
-    float:left;
+  float:left;
 }
 .indexDiv{
-    max-height: 500px;
-    width: 100%;
-    overflow-y:scroll;
-    margin-top: 10px;
+  max-height: 500px;
+  width: 100%;
+  overflow-y:scroll;
+  margin-top: 10px;
 }
 
 #filter-drop, #index-drop-list {
-    border: 1px solid #ccc;
-    width: 100px;
-    border-radius: 3px;
-    height: 40px;
-    overflow: hidden;
-    color:#7b4397;
-    background-color: white;
+  border: 1px solid #ccc;
+  width: 100px;
+  border-radius: 3px;
+  height: 40px;
+  overflow: hidden;
+  color:#7b4397;
+  background-color: white;
 }
 
 #filter-drop select, #index-drop-list select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    height: 40px;
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  height: 40px;
 }
 
 #filter-drop select:focus, #index-drop-list select::focus {
-    outline: none;
+  outline: none;
 }
 #index-drop-list{
-    left:20px;
-    margin-left: 10px;
+  left:20px;
+  margin-left: 10px;
 }
 #showIndexId{
-    float: left;
+  float: left;
 }
 #filter-drop{
-    margin-top: 5px;
+  margin-top: 5px;
 }
 .indexDiv{
 	color: white;
 }
 #titleHeader {
-		font-size: 1.23em;
-		font-weight: bold;
+	font-size: 1.23em;
+	font-weight: bold;
 }

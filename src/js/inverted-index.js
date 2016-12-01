@@ -50,11 +50,19 @@ class InvertedIndexClass {
 			this.arrangeIndex(countFile, titleTextArray);
 		}
 
-		this.allFileIndex[jsonName] = this.singleJsonIndex;
-		const singleIndex = this.singleJsonIndex;
+// sorted index
+		let sortedIndex = {};
+		Object.keys(this.singleJsonIndex)
+			.sort()
+			.forEach( (key) => {
+				sortedIndex[key] = this.singleJsonIndex[key];
+			});
+
+
+		this.allFileIndex[jsonName] = sortedIndex;
 		this.singleJsonIndex = {};
 
-		return singleIndex;
+		return sortedIndex;
 	}
 
 	/**

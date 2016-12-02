@@ -14,12 +14,7 @@ describe("Inverted Index Test Suites", () => {
 		it("Should return a valid JSON Array", () => {
 			expect(invertedIndexTest.isValidJson(books)).toBeTruthy();
 		});
-
-		it("Should return an invalid JSON Array when parameter is 'invalidJson'",
-			() => {
-				expect(invertedIndexTest.isValidJson(invalid)).toBeFalsy();
-			});
-
+		
 		it("Should return true, when json file is 'empty'", () => {
 			expect(invertedIndexTest.isJsonEmpty(bookempty)).toBeTruthy();
 		});

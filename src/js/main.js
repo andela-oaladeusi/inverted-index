@@ -21,8 +21,7 @@ let displayAllSearch = (dataIndex) => {
 let checkIndex = (dataIndex, length, fileName) => {
 	let indexDiv = '<br><br><br><div class = "indexDiv"><h2 id = "titleHeader">' + fileName + '</h2>';
 
-	indexDiv += '<table class = "responstable"';
-	// indexDiv += '<thead><tr><th>' + fileName + 'file</th></tr><tr>';
+	indexDiv += '<table class = "responstable">';
 
 	for (let headLoop = 0; headLoop <= length; headLoop++) {
 		if (headLoop === 0) {
@@ -35,9 +34,9 @@ let checkIndex = (dataIndex, length, fileName) => {
 	indexDiv += '</tr></thead>';
 
 	// This iteration will mark each column in tbody
+	indexDiv += '<tbody>';
 	for (let term in dataIndex) {
-		indexDiv += '<tbody><tr>';
-		indexDiv += '<td>' + term + '</td>';
+		indexDiv += '<tr><td>' + term + '</td>';
 
 		for (let column = 0; column < length; column++) {
 			if (dataIndex[term][column]) {
@@ -57,7 +56,6 @@ let checkIndex = (dataIndex, length, fileName) => {
 // On keypress , it will call search function
 $('#search-input').keypress(() => {
 	try {
-		deleteTable();
 		searchFunction();
 	} catch (e) {
 		return;
@@ -66,9 +64,9 @@ $('#search-input').keypress(() => {
 
 // On Enter button press, it will call search function
 $('#search-input').keypress((e) => {
+	let _ = invertedClass;
 	if (e.which === 13) {
 		try {
-			deleteTable();
 			searchFunction();
 		} catch (e) {
 			return;
@@ -130,10 +128,15 @@ let indexListOptions = $("#index-drop-list");
 // create index table upon selecting any option from select button
 $('#index-drop-list').on('click', function () {
 	let jsonName = $(this).val();
-	deleteTable();
+	return jsonName===null? alert('No file to select'): showIndex(jsonName);
+});
+
+// get and display index
+let showIndex = (jsonName) =>{
+  deleteTable();
 	checkIndex(invertedClass.getIndex(jsonName), invertedClass.jLength[jsonName],
 		jsonName);
-});
+};
 
 // Delete table and create a new table container
 let deleteTable = () => {
@@ -143,6 +146,7 @@ let deleteTable = () => {
 
 // search function
 let searchFunction = () => {
+	deleteTable();
 	let searchValue = $('#search-input').val();
 	let filterName = document.getElementById("filter-drop");
 	let selectedFilter = filterName.options[filterName.selectedIndex].value;
@@ -154,6 +158,14 @@ let searchFunction = () => {
 		checkIndex(searchResult, invertedClass.jLength[selectedFilter], selectedFilter);
 	}
 };
+
+
+// create index table upon selecting any option from select button
+$('#filter-drop').on('click', function () {
+	let filterName = $(this).val();
+	return filterName===null? alert('No file to select'): searchFunction();
+});
+
 
 // Selected Json file's File Reader function
 let getFile = (filePath) => {

@@ -4,8 +4,7 @@
 	padding:0;
 }
 
-a, a:visited {
-  color:#ffffff;
+a, a:visited, a:hover {
 	text-decoration:none;
 	outline:none;
 }
@@ -89,14 +88,11 @@ input{
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  float: left;
   z-index: auto;
-  width: 50%;
   height: auto;
-  position: static;
   cursor: default;
   opacity: 1;
-  margin: 20px;
+  /*margin: 20px;*/
   padding: 10px 20px;
   overflow: visible;
   border: 1px solid #b7b7b7;
@@ -107,7 +103,6 @@ input{
   background: rgba(252,252,252,1);
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -118,7 +113,7 @@ input{
   transform-origin: 50% 50% 0;
 }
 #fileUpload{
-	width: auto;
+	width: 100%;
 }
 
 #IA{
@@ -141,8 +136,9 @@ input{
   font-family: Arial;
   color: #ffffff;
   text-decoration: none;
-  width: auto;
-  margin-left: 10px;
+  width: 70%;
+	padding: 12px 20px 12px 40px;
+	margin-left: 40px;
 }
 
 #upload:hover{
@@ -156,71 +152,58 @@ input{
 }
 
 #search-input {
-  float: left;
   width: auto;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  background-color: white;
+  background-color: #7b4397;
   background-image: url('search-icon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+	margin-left: 90px;
+	color: white;
 }
 #search-input:focus {
   width: auto;
+	background: white;
+	color: #7b4397;
+	border: 1px solid #7b4397;
 }
 
 #search-expand{
 	width: auto;
 }
-#uploadDiv{
-  float:left;
-}
 .indexDiv{
-  max-height: 500px;
-  width: 100%;
-  overflow-y:scroll;
-	overflow-x: auto;
-  margin-top: 10px;
+  max-height: 400px;
+	font-size: 12px;
 }
 
-#filter-drop, #index-drop-list {
-  border: 1px solid #ccc;
-  width: 100px;
-  border-radius: 3px;
-  height: 40px;
+#filter-drop{
+	border: 2px solid #ccc;
+	border-radius: 3px;
+	color:#7b4397;
+  background-color: white;
+	padding: 12px 20px 12px 40px;
+	width: auto;
+	margin-left: 70px;
+	font-size: 14px;
+} 
+
+#index-drop-list {
+  border: 2px solid #ccc;
+  width:auto;
   overflow: hidden;
   color:#7b4397;
   background-color: white;
-}
-
-#filter-drop select, #index-drop-list select {
-  padding: 5px 8px;
-  width: 130%;
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  background-image: none;
-  -webkit-appearance: none;
-  height: 40px;
-}
-
-#filter-drop select:focus, #index-drop-list select::focus {
-  outline: none;
-}
-#index-drop-list{
-  left:20px;
-  margin-left: 10px;
+	padding: 12px 20px 12px 40px;
+	font-size: 14px;
 }
 #showIndexId{
-  float: left;
-}
-#filter-drop{
-  margin-top: 5px;
+	font-size: 12px;
 }
 .indexDiv{
 	color: white;
@@ -228,4 +211,139 @@ input{
 #titleHeader {
 	font-size: 1.23em;
 	font-weight: bold;
+}
+
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+table thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+}
+table tbody {
+    /* body takes all the remaining available space */
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+}
+table tbody tr {
+    width: 100%;
+}
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+tbody {
+			max-height: 300px;
+}
+
+@media only screen and (max-width: 920px) {
+#page{
+	width:750px;
+	margin:0 auto;
+	position:relative;
+}
+input{
+  margin: 2px;
+}
+#fileUpload{
+	width: 90%;
+}
+#create-index{
+  width: 100%;
+  box-sizing: border-box;
+	margin-left: 10px;
+}
+#search-input {
+  width: 100%;
+	margin-left: 20px;
+}
+.indexDiv{
+	font-size: 12px;
+	color: white;
+}
+
+#filter-drop{
+	width: 100%;
+	margin-left: 0px;
+} 
+
+#index-drop-list {
+	width: 50%;
+	margin-left: 25px;
+}
+#showIndexId{
+	font-size: 12px;
+	margin-left: 55px;
+}
+#titleHeader {
+	font-size: 1.23em;
+	font-weight: bold;
+}
+}
+
+@media only screen and (max-width: 780px) {
+#page{
+	width:500px;
+	margin:0 auto;
+	position:relative;
+}
+
+input{
+  margin: 2px;
+}
+
+#fileUpload{
+	width: 90%;
+}
+#create-index{
+  width: 100%;
+  box-sizing: border-box;
+	margin-left: 0px;
+}
+#search-input {
+  width: 100%;
+	margin-left: 0px;
+}
+.indexDiv{
+	font-size: 12px;
+	color: white;
+}
+
+#filter-drop{
+	width: 100%;
+	margin-left: 0px;
+} 
+
+#index-drop-list {
+	width: 50%;
+	margin-left: 25px;
+}
+#showIndexId{
+	font-size: 12px;
+	margin-left: 55px;
+}
+#titleHeader {
+	font-size: 1.23em;
+	font-weight: bold;
+}
+}
+
+@media only screen and (max-width: 375px) {
+#page{
+	width:370px;
+	margin:0 auto;
+	position:relative;
+}
+#fileUpload {
+	width: 85%;
+}
+table {
+	font-size: 7px;
+}
 }

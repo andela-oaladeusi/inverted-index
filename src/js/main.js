@@ -19,7 +19,8 @@ let displayAllSearch = (dataIndex) => {
 * This will display all search query in a table
 */
 let checkIndex = (dataIndex, length, fileName) => {
-	let indexDiv = '<br><br><br><div class = "indexDiv"><h2 id = "titleHeader">' + fileName + '</h2>';
+	let indexDiv = '<br><br><br><div class = "indexDiv"><h2 id = "titleHeader">' + 
+	fileName + '</h2>';
 
 	indexDiv += '<table class = "responstable">';
 
@@ -64,7 +65,6 @@ $('#search-input').keypress(() => {
 
 // On Enter button press, it will call search function
 $('#search-input').keypress((e) => {
-	let _ = invertedClass;
 	if (e.which === 13) {
 		try {
 			searchFunction();
@@ -128,12 +128,12 @@ let indexListOptions = $("#index-drop-list");
 // create index table upon selecting any option from select button
 $('#index-drop-list').on('click', function () {
 	let jsonName = $(this).val();
-	return jsonName===null? alert('No file to select'): showIndex(jsonName);
+	return jsonName === null ? alert('No file to select') : showIndex(jsonName);
 });
 
 // get and display index
-let showIndex = (jsonName) =>{
-  deleteTable();
+let showIndex = (jsonName) => {
+	deleteTable();
 	checkIndex(invertedClass.getIndex(jsonName), invertedClass.jLength[jsonName],
 		jsonName);
 };
@@ -155,7 +155,8 @@ let searchFunction = () => {
 	if (selectedFilter === 'all') {
 		displayAllSearch(searchResult);
 	} else {
-		checkIndex(searchResult, invertedClass.jLength[selectedFilter], selectedFilter);
+		checkIndex(searchResult, invertedClass.jLength[selectedFilter], 
+		selectedFilter);
 	}
 };
 
@@ -163,7 +164,7 @@ let searchFunction = () => {
 // create index table upon selecting any option from select button
 $('#filter-drop').on('click', function () {
 	let filterName = $(this).val();
-	return filterName===null? alert('No file to select'): searchFunction();
+	return filterName === null ? alert('No file to select') : searchFunction();
 });
 
 

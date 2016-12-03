@@ -23,7 +23,8 @@ gulp.task('browserSync', function() {
  */
 gulp.task('watch', ['browserSync'], function (){
   // Reloads the browser whenever HTML, CSS or JS files change
-  gulp.watch(['src/css/**/*.css','src/*.html','src/js/**/*.js','jasmine/spec/**/*.js'],browserSync.reload); 
+  gulp.watch(['src/css/**/*.css','src/*.html','src/js/**/*.js',
+	'jasmine/spec/**/*.js'],browserSync.reload); 
 
 });
 

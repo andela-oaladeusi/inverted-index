@@ -13,8 +13,7 @@ An inverted index consists of a list of all the unique words that appear in
 any document, and for each word, a list of the documents in which it appears.
 
 ## Inverted Index Example
-Assuming we have the below Book with two documents
-
+Upload a json file of below format
         Book =  {
                 {
                     "title": "Andela",
@@ -26,10 +25,9 @@ Assuming we have the below Book with two documents
                     }
                 }
 
-To create an inverted index, we first split the content field of each document
-into separate words (which we call terms, or tokens), create a sorted list of
-all the unique terms, and then list in which document each term appears. 
-The result looks something like this:
+To create an inverted index, we first split the content of each document
+into separate words (which we call terms, or tokens). The inverted index
+result of the book above is shown below: 
 
     Term      Doc_1  Doc_2
     -------------------------
@@ -66,25 +64,27 @@ in which each term appears:
 
     Local Machine
 
-    git clone git@github.com:andela-oaladeusi/inverted-index.git
+    'git clone git@github.com:andela-oaladeusi/inverted-index.git'
 
     Change directory into inverted-index and follow the steps below.
 
     - Install Node js
 
     - Install all the dependencies:
-        npm install
+        'npm install'
 
     Run Tests for the application with:
-        npm test
+        'npm test'
 
     Start the Application with:
-        npm start
+        'npm start'
 
 ## Technologies
   - Node.js
   - EchmaScript 6 (JavaScript 2015)
   - Jquery-3.1.1.js
   - Jasmine (Test Runner)
+	- Karma
+	- gulp
   - Travis CI (For Continous Integration and badge)
   - Coveralls (To compute Test Coverage % and badge)

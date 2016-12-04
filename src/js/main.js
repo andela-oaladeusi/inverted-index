@@ -1,4 +1,5 @@
 'use strict';
+let noFile = true;
 /* jshint browser: true */
 
 /**
@@ -19,8 +20,8 @@ let displayAllSearch = (dataIndex) => {
 * This will display all search query in a table
 */
 let checkIndex = (dataIndex, length, fileName) => {
-	let indexDiv = '<br><br><br><div class = "indexDiv"><h2 id = "titleHeader">' + 
-	fileName + '</h2>';
+	let indexDiv = '<br><br><br><div class = "indexDiv"><h2 id = "titleHeader">' +
+		fileName + '</h2>';
 
 	indexDiv += '<table class = "responstable">';
 
@@ -82,7 +83,8 @@ document.getElementById('fileUpload').addEventListener('change', (e) => {
 // Create index button click
 let createIndexButton = () => {
 	if (document.getElementById('fileUpload').value === "") {
-		alert("Upload a file");
+		document.getElementById('alert-message').innerHTML = "Upload a json file";
+		$('#alertError').modal('show');
 		return;
 	}
 
@@ -110,6 +112,7 @@ let createIndexButton = () => {
 		invertedClass.json = null;
 		invertedClass.fileName = null;
 		invertedClass.singleJsonIndex = {};
+		noFile = false;
 	}
 
 };
@@ -128,7 +131,7 @@ let indexListOptions = $("#index-drop-list");
 // create index table upon selecting any option from select button
 $('#index-drop-list').on('click', function () {
 	let jsonName = $(this).val();
-	return jsonName === null ? alert('No file to select') : showIndex(jsonName);
+	return jsonName === null ? console.log('No file to select') : showIndex(jsonName);
 });
 
 // get and display index
@@ -146,6 +149,11 @@ let deleteTable = () => {
 
 // search function
 let searchFunction = () => {
+	if (noFile) {
+		document.getElementById('alert-message').innerHTML = "No created index yet\n Create index first";
+		$('#alertError').modal('show');
+		return;
+	}
 	deleteTable();
 	let searchValue = $('#search-input').val();
 	let filterName = document.getElementById("filter-drop");
@@ -155,8 +163,8 @@ let searchFunction = () => {
 	if (selectedFilter === 'all') {
 		displayAllSearch(searchResult);
 	} else {
-		checkIndex(searchResult, invertedClass.jLength[selectedFilter], 
-		selectedFilter);
+		checkIndex(searchResult, invertedClass.jLength[selectedFilter],
+			selectedFilter);
 	}
 };
 
@@ -182,19 +190,22 @@ let getFile = (filePath) => {
 					invertedClass.fileName = filePath.name;
 				}
 				else {
-					alert('Invalid Json Content');
+					document.getElementById('alert-message').innerHTML = "Invalid Json Content";
+					$('#alertError').modal('show');
 					setInputEmpty();
-					return;
+					return;					
 				}
 			} else {
-				alert("Invalid Json File");
+					document.getElementById('alert-message').innerHTML = "Invalid Json File";
+					$('#alertError').modal('show');					
 			}
 		};
 		reader.readAsText(filePath);
 	} else {
-		alert("Please upload a valid JSON file.");
-		setInputEmpty();
-		return;
+			document.getElementById('alert-message').innerHTML = "Upload a valid json file";
+			$('#alertError').modal('show');
+			setInputEmpty();
+			return;					
 	}
 };
 
@@ -202,7 +213,8 @@ let getFile = (filePath) => {
 let checkExistingFileName = () => {
 	invertedClass.names.forEach((name) => {
 		if (name === invertedClass.fileName) {
-			alert('file already exist');
+			document.getElementById('alert-message').innerHTML = "File already exit";
+			$('#alertError').modal('show');
 			setInputEmpty();
 			throw true;
 		}

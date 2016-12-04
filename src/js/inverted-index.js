@@ -28,7 +28,8 @@ class InvertedIndexClass {
 	createIndex(jsonArray, jsonName) {
 
 		if (!this.validateJsonContent(jsonArray)) {
-			alert("Invalid Json Content");
+			document.getElementById('alert-message').innerHTML = "Invalid Json Content";
+			$('#alertError').modal('show');
 			return;
 		}
 
@@ -50,11 +51,11 @@ class InvertedIndexClass {
 			this.arrangeIndex(countFile, titleTextArray);
 		}
 
-// sorted index
+		// sorted index
 		let sortedIndex = {};
 		Object.keys(this.singleJsonIndex)
 			.sort()
-			.forEach( (key) => {
+			.forEach((key) => {
 				sortedIndex[key] = this.singleJsonIndex[key];
 			});
 

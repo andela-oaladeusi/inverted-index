@@ -9,23 +9,42 @@ a, a:visited, a:hover {
 	outline:none;
 }
 
-h1{
+#mainTitle{
 	/* The logo text */
   font-size:3.5em;
 	padding:0.5em 0 0;
 	text-transform:uppercase;
+	font-weight:bold;
 	color: #7b4397;
 }
 
-h2{
+#aboutH2{
 	font-size:2.2em;
-	font-weight:normal;
-	letter-spacing:0.01em;
-	text-transform:uppercase;
+	font-weight:bold;
+	color: #7b4397;
+	margin-top: 40px;
+	float: right;
 }
-h3{
-  color: white;
-  margin-left: 25px;
+#aboutH2 a::visited {
+	font-size: 1.25em;
+  font-weight: bold;
+  margin: 5px 2px;
+  padding: 7px 10px 4px;
+  text-transform: uppercase;
+	color: #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+#aboutH2 a:hover {
+	text-decoration:none;
+	background-color:#7b4397;
+	color: white;
+}
+#aboutH2, a {
+	-moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 10px;
+  color: #7b4397;
 }
 #titleOption{
   margin-left: 520px;
@@ -240,6 +259,28 @@ table thead, table tbody tr {
 }
 tbody {
 			max-height: 300px;
+}
+#aboutTitle, #aboutBody, #alertError {
+	color: #7b4397;
+}
+#aboutBody {
+	max-height: 400px;
+	overflow-y: scroll;
+}
+.explain{
+	font-size: 1.7em;
+}
+.question {
+	font-weight: bold;
+	font-size: 2.5em;
+}
+.literallayout {
+	color: #7b4397;
+	font-size: 1.9em;
+}
+#alert-message{
+	color: #7b4397;
+	font-size: 2em;
 }
 
 @media only screen and (max-width: 920px) {

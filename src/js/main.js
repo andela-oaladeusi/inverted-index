@@ -1,18 +1,17 @@
 'use strict';
-let noFile = true;
 /* jshint browser: true */
+let noFile = true;
 
-/**
-* displayAllSearch function
-* This will display all search query
-* @function
-* @param {Object} dataIndex 
-*/
+// create index button click
+$('#create-index').click( () => {
+	createIndexButton();
+});
+
+ // displayAllSearch function
 let displayAllSearch = (dataIndex) => {
 	for (let tableName in dataIndex) {
 		checkIndex(dataIndex[tableName], invertedClass.jLength[tableName], tableName);
 	}
-
 };
 
 /**
@@ -150,7 +149,8 @@ let deleteTable = () => {
 // search function
 let searchFunction = () => {
 	if (noFile) {
-		document.getElementById('alert-message').innerHTML = "No created index yet\n Create index first";
+		document.getElementById('alert-message')
+		.innerHTML = "No created index yet\n Create index first";
 		$('#alertError').modal('show');
 		return;
 	}
@@ -190,22 +190,25 @@ let getFile = (filePath) => {
 					invertedClass.fileName = filePath.name;
 				}
 				else {
-					document.getElementById('alert-message').innerHTML = "Invalid Json Content";
+					document.getElementById('alert-message')
+					.innerHTML = "Invalid Json Content";
 					$('#alertError').modal('show');
 					setInputEmpty();
-					return;					
+					return;
 				}
 			} else {
-					document.getElementById('alert-message').innerHTML = "Invalid Json File";
-					$('#alertError').modal('show');					
+					document.getElementById('alert-message')
+					.innerHTML = "Invalid Json File";
+					$('#alertError').modal('show');
 			}
 		};
 		reader.readAsText(filePath);
 	} else {
-			document.getElementById('alert-message').innerHTML = "Upload a valid json file";
+			document.getElementById('alert-message')
+			.innerHTML = "Upload a valid json file";
 			$('#alertError').modal('show');
 			setInputEmpty();
-			return;					
+			return;
 	}
 };
 

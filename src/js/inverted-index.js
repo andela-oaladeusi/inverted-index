@@ -4,7 +4,6 @@
  * @class
  */
 class InvertedIndexClass {
-
 	/**
 	 * class constructor
 	 * @constructor
@@ -20,7 +19,6 @@ class InvertedIndexClass {
 
 	/**
 	 * Create index
-	 * @function
 	 * @param {Array} jsonArray
 	 * @param {string} jsonName
 	 * @return {Object} singleIndex
@@ -68,7 +66,6 @@ class InvertedIndexClass {
 
 	/**
 	 * arrange index
-	 * @function
 	 * @param {Integer} countFile
 	 * @param {Array} titleTextArray
 	 */
@@ -91,7 +88,6 @@ class InvertedIndexClass {
 
 	/**
  * Get a particular index
- * @function
  * @param {String} jsonName
  * @return {Object}
  */
@@ -101,7 +97,6 @@ class InvertedIndexClass {
 
 	/**
  * Search Index.
- * @function
  * @param {String} query query string
  * @param {String} filterName name of index to be searched.
  * @return {Object} searchResult 
@@ -142,7 +137,6 @@ class InvertedIndexClass {
 
 	/**
 * validateJsonContent.
-* @function
 * @param {Object} jUpload
 * @return {Boolean} true or false 
 */
@@ -156,7 +150,6 @@ class InvertedIndexClass {
 
 	/**
 * isValidJson
-* @function
 * @param {Object} jUpload
 * @return {Boolean} true or false 
 */
@@ -174,7 +167,6 @@ class InvertedIndexClass {
 
 	/**
 * isJsonEmpty
-* @function
 * @param {Object} jUpload
 * @return {Boolean} true or false 
 */

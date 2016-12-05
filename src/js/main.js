@@ -3,11 +3,11 @@
 let noFile = true;
 
 // create index button click
-$('#create-index').click( () => {
+$('#create-index').click(() => {
 	createIndexButton();
 });
 
- // displayAllSearch function
+// displayAllSearch function
 let displayAllSearch = (dataIndex) => {
 	for (let tableName in dataIndex) {
 		checkIndex(dataIndex[tableName], invertedClass.jLength[tableName], tableName);
@@ -150,7 +150,7 @@ let deleteTable = () => {
 let searchFunction = () => {
 	if (noFile) {
 		document.getElementById('alert-message')
-		.innerHTML = "No created index yet\n Create index first";
+			.innerHTML = "No created index yet\n Create index first";
 		$('#alertError').modal('show');
 		return;
 	}
@@ -191,24 +191,24 @@ let getFile = (filePath) => {
 				}
 				else {
 					document.getElementById('alert-message')
-					.innerHTML = "Invalid Json Content";
+						.innerHTML = "Invalid Json Content";
 					$('#alertError').modal('show');
 					setInputEmpty();
 					return;
 				}
 			} else {
-					document.getElementById('alert-message')
+				document.getElementById('alert-message')
 					.innerHTML = "Invalid Json File";
-					$('#alertError').modal('show');
+				$('#alertError').modal('show');
 			}
 		};
 		reader.readAsText(filePath);
 	} else {
-			document.getElementById('alert-message')
+		document.getElementById('alert-message')
 			.innerHTML = "Upload a valid json file";
-			$('#alertError').modal('show');
-			setInputEmpty();
-			return;
+		$('#alertError').modal('show');
+		setInputEmpty();
+		return;
 	}
 };
 

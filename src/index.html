@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Inverted Index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/jlAqp.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <section id="page">
+    <header>
+      <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <hgroup>
+            <a href="index.html">
+            <h1 id="mainTitle">Inverted Index</h1>
+            </a>
+          </hgroup>
+        </div>
+          <div class="col-sm-6">
+            <hgroup>
+              <h2 id="aboutH2"><a href="" data-toggle="modal"
+                data-target="#aboutModal">About</a></h2>
+            </hgroup>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="articles">
+      <div class="line"></div>
+
+      <article>
+        <figure>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-3">
+                <input type="file" id="fileUpload" accept=".json" multiple/>
+              </div>
+              <div class="col-sm-3">
+                <input type="button" id="create-index" value="Create Index" />
+              </div>
+              <div class="col-sm-3"><input type="input" id="search-input" placeholder="Search Json..." />
+              </div>
+              <div class="col-sm-3"><select id="filter-drop" name="type">
+                    <option value = "all">All</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="line"></div>
+
+          <div id="showIndexId">
+            <label> Show Index </label>
+            <select id="index-drop-list" name="type"> </select>
+          </div>
+
+          <div class="indexContainer" id="table-holder"></div>
+        </figure>
+      </article>
+    </section>
+
+		<!--Modal Class-->
+
+   <div class="modal fade" id="alertError">
+     <div class="modal-dialog" role="document">
+     <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+         <h4 class="modal-title">Error Message</h4>
+     </div>
+        <div class="modal-body">
+          <p id = "alert-message" >No file is selected</p>
+        </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="modal fade" id="aboutModal" role="dialog">
+      <div class="modal-dialog">
+				<!-- Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id = "aboutTitle" class="modal-title">About Inverted Index</h4>
+            </div>
+          <div class="modal-body" id = "aboutBody">
+				   <aboutq class = "question" > What is Inverted Index? </aboutq>
+				   	<br>
+<pre class = "literallayout">
+An inverted index is an index data structure storing a mapping from content,
+such as words or numbers, to its locations in a database file, or in a
+document or a set of documents.
+The purpose of an inverted index is to allow fast full text searches, at a
+cost of increased processing when a document is added to the database.
+An inverted index consists of a list of all the unique words that appear in
+any document, and for each word, a list of the documents in which it appears.
+</pre>
+				<br>
+				<br>
+
+				<aboutq class = "question" >Inverted Index Example </aboutq>
+				<br>
+				<p class = "explain" >Upload a JSON file of below format</p>
+
+		<pre class = "literallayout">
+	Book = {
+	{
+	"title": "Andela",
+	"text": "EPIC and four c"
+	},
+	{
+	"title": "Andela Fellow ",
+	"text": "Four years, TIA."
+	}
+	}
+	</pre>
+ <br>
+			<p class = "explain">	To create an inverted index, we first split the
+				content field of each document into separate words (which we call
+				terms, or tokens), we then create a sorted list of all the unique
+				terms.
+				The inverted index of the above book is:
+			</p>
+			<br>
+<pre class="literallayout">
+Term      Doc_1  Doc_2
+-------------------------
+andela  |   +   |  +
+epic    |   +   |
+and     |   +   |
+four    |   +   |  +
+c       |   +   |
+fellow  |       |  +
+years   |       |  +
+tia     |       |  +
+</pre>
+
+<p class = "explain" >Now, if we want to search for andela fellow,
+we just need to find the documents in which each term appears:
+</p>
+<pre class="literallayout">
+Term      Doc_1  Doc_2
+-------------------------
+andela  |   +   |  +
+fellow  |   +   |
+</pre>
+
+<p class = "question"> Features </p>
+
+<pre class="literallayout">
+- Create indexes from multiple uploaded JSON files.
+- Find a particular index from each files.
+- Full text search of created indexes.
+</pre>
+
+<p class = "question"> How to use </p>
+<pre class="literallayout">
+WEB USE
+URL: https://invert-index.herokuapp.com/
+
+LOCAL USE
+- Clone inverted index repository in github
+	'git clone git@github.com:andela-oaladeusi/inverted-index.git'
+
+Change directory into inverted-index and follow the steps below.
+
+- Install Node js
+- Install all the dependencies:
+	'npm install''
+
+- Run Tests for the application with:
+	'npm test'
+
+- Start the Application with:
+	'npm start''
+</pre>
+
+<p class = "question" >Technologies </p>
+<pre class="literallayout">
+- Node.js
+- EchmaScript 6 (JavaScript 2015)
+- Jquery-3.1.1.js
+- bootstrap
+- Jasmine (Test Runner)
+- Travis CI (For Continous Integration and badge)
+- Coveralls (To compute Test Coverage % and badge)
+- Karma
+</pre>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default"
+						data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--end of Modal Class-->
+		<footer>
+			<div class="line"></div>
+			<p>Copyright 2016 - Andela Simulation - Inverted index</p>
+		</footer>
+	</section>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/inverted-index.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

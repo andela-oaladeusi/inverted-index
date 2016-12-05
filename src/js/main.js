@@ -182,33 +182,30 @@ let getFile = (filePath) => {
   if (regex.test($("#fileUpload").val().toLowerCase())) {
     let reader = new FileReader();
     reader.onload = () => {
-      let jUpload = JSON.parse(reader.result);
-      if (invertedClass.isValidJson(reader.result)) {
-        if (!invertedClass.isJsonEmpty(jUpload) &&
-          invertedClass.validateJsonContent(jUpload)) {
+    let jUpload = JSON.parse(reader.result);
+    if (invertedClass.isValidJson(reader.result)) {
+      if (!invertedClass.isJsonEmpty(jUpload) &&
+            invertedClass.validateJsonContent(jUpload)) {
           invertedClass.json = jUpload;
           invertedClass.fileName = filePath.name;
         }
-         else {
-          document.getElementById('alert-message')
-            .innerHTML = "Invalid Json Content";
+        else {
+          document.getElementById('alert-message').innerHTML = "Invalid Json Content";
           $('#alertError').modal('show');
           setInputEmpty();
           return;
         }
-      } else {
-        document.getElementById('alert-message')
-          .innerHTML = "Invalid Json File";
+    } else {
+        document.getElementById('alert-message').innerHTML = "Invalid Json File";
         $('#alertError').modal('show');
       }
     };
     reader.readAsText(filePath);
-  } else {
-    document.getElementById('alert-message')
-      .innerHTML = "Upload a valid json file";
-    $('#alertError').modal('show');
-    setInputEmpty();
-    return;
+  } else { 
+      document.getElementById('alert-message').innerHTML = "Upload a valid json file";
+      $('#alertError').modal('show');
+      setInputEmpty();
+      return;
   }
 };
 

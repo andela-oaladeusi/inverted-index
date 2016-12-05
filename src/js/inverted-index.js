@@ -38,9 +38,9 @@ class InvertedIndexClass {
 		// This iteration will merge both title and text property of each files
     for (let countFile in jsonArray) {
       let documentArray = jsonArray[countFile];
-      let rawTitleArr = documentArray.title.toLowerCase().match(/\w+/g);
-      let rawTextArr = documentArray.text.toLowerCase().match(/\w+/g);
-      let joinTitleText = [...new Set([...rawTitleArr, ...rawTextArr])];
+      let joinTitleText = new Set((documentArray.title
+                            .concat(documentArray.text))
+                            .toLowerCase().match(/\w+/g));
       titleTextArray.push(joinTitleText);
     }
 

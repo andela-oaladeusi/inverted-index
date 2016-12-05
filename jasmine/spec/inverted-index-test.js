@@ -18,7 +18,7 @@ describe("Inverted Index Test Suites", () => {
       expect(invertedIndexTest.isJsonEmpty(bookempty)).toBeTruthy();
     });
 
-    it("Should return true JSON array is not empty", () => {
+    it("Should return true, when JSON file is not empty", () => {
       expect(invertedIndexTest.isJsonEmpty(books)).toBeFalsy();
     });
 

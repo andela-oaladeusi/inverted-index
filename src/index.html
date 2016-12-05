@@ -1,107 +1,102 @@
 <!DOCTYPE html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Inverted Index</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
-	<link rel="stylesheet" type="text/css" href="css/jlAqp.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Inverted Index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/jlAqp.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-	<section id="page">
-		<header>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-6">
-						<hgroup>
-							<a href="index.html">
-								<h1 id="mainTitle">Inverted Index</h1>
-							</a>
-						</hgroup>
-					</div>
-					<div class="col-sm-6">
-						<hgroup>
-							<h2 id="aboutH2"><a href="" data-toggle="modal"
-							data-target="#aboutModal">About</a></h2>
-						</hgroup>
-					</div>
-				</div>
-			</div>
-		</header>
-		<section id="articles">
-			<div class="line"></div>
+  <section id="page">
+    <header>
+      <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <hgroup>
+            <a href="index.html">
+            <h1 id="mainTitle">Inverted Index</h1>
+            </a>
+          </hgroup>
+        </div>
+          <div class="col-sm-6">
+            <hgroup>
+              <h2 id="aboutH2"><a href="" data-toggle="modal"
+                data-target="#aboutModal">About</a></h2>
+            </hgroup>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="articles">
+      <div class="line"></div>
 
-			<article>
-				<figure>
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-3">
-								<input type="file" id="fileUpload" accept=".json" multiple/>
-							</div>
-							<div class="col-sm-3">
-								<input type="button" id="create-index"
-									value="Create Index" />
-							</div>
-							<div class="col-sm-3"><input type="input"
-							id="search-input" placeholder="Search Json..." />
-							</div>
-							<div class="col-sm-3"><select id="filter-drop" name="type">
+      <article>
+        <figure>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-3">
+                <input type="file" id="fileUpload" accept=".json" multiple/>
+              </div>
+              <div class="col-sm-3">
+                <input type="button" id="create-index" value="Create Index" />
+              </div>
+              <div class="col-sm-3"><input type="input" id="search-input" placeholder="Search Json..." />
+              </div>
+              <div class="col-sm-3"><select id="filter-drop" name="type">
                     <option value = "all">All</option>
-                  </select>
-							</div>
-						</div>
-					</div>
-					<br>
-					<div class="line"></div>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="line"></div>
 
-					<div id="showIndexId">
-						<label> Show Index </label>
-						<select id="index-drop-list" name="type"> </select>
-					</div>
+          <div id="showIndexId">
+            <label> Show Index </label>
+            <select id="index-drop-list" name="type"> </select>
+          </div>
 
-					<div class="indexContainer" id="table-holder"></div>
-				</figure>
-			</article>
-		</section>
+          <div class="indexContainer" id="table-holder"></div>
+        </figure>
+      </article>
+    </section>
 
 		<!--Modal Class-->
 
-  <div class="modal fade" id="alertError">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" 
-						data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-          <h4 class="modal-title">Error Message</h4>
-        </div>
+   <div class="modal fade" id="alertError">
+     <div class="modal-dialog" role="document">
+     <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+         <h4 class="modal-title">Error Message</h4>
+     </div>
         <div class="modal-body">
           <p id = "alert-message" >No file is selected</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" 
-						data-dismiss="modal">Close</button>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
 
-		<div class="modal fade" id="aboutModal" role="dialog">
-			<div class="modal-dialog">
-
+    <div class="modal fade" id="aboutModal" role="dialog">
+      <div class="modal-dialog">
 				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 id = "aboutTitle" class="modal-title">About Inverted Index</h4>
-					</div>
-					<div class="modal-body" id = "aboutBody">
-					<aboutq class = "question" > What is Inverted Index? </aboutq>
-					<br>
+         <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id = "aboutTitle" class="modal-title">About Inverted Index</h4>
+            </div>
+          <div class="modal-body" id = "aboutBody">
+				   <aboutq class = "question" > What is Inverted Index? </aboutq>
+				   	<br>
 <pre class = "literallayout">
 An inverted index is an index data structure storing a mapping from content,
 such as words or numbers, to its locations in a database file, or in a

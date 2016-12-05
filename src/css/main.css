@@ -1,47 +1,47 @@
 *{
-	/* Universal reset: */
+  /* Universal reset: */
   margin:0;
-	padding:0;
+  padding:0;
 }
 
 a, a:visited, a:hover {
-	text-decoration:none;
-	outline:none;
+  text-decoration:none;
+  outline:none;
 }
 
 #mainTitle{
-	/* The logo text */
+  /* The logo text */
   font-size:3.5em;
-	padding:0.5em 0 0;
-	text-transform:uppercase;
-	font-weight:bold;
-	color: #7b4397;
+  padding:0.5em 0 0;
+  text-transform:uppercase;
+  font-weight:bold;
+  color: #7b4397;
 }
 
 #aboutH2{
-	font-size:2.2em;
-	font-weight:bold;
-	color: #7b4397;
-	margin-top: 40px;
-	float: right;
+  font-size:2.2em;
+  font-weight:bold;
+  color: #7b4397;
+  margin-top: 40px;
+  float: right;
 }
 #aboutH2 a::visited {
-	font-size: 1.25em;
+  font-size: 1.25em;
   font-weight: bold;
   margin: 5px 2px;
   padding: 7px 10px 4px;
   text-transform: uppercase;
-	color: #ffffff;
+  color: #ffffff;
   text-decoration: none;
   outline: none;
 }
 #aboutH2 a:hover {
-	text-decoration:none;
-	background-color:#7b4397;
-	color: white;
+  text-decoration:none;
+  background-color:#7b4397;
+  color: white;
 }
 #aboutH2, a {
-	-moz-border-radius: 20px;
+  -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 10px;
   color: #7b4397;
@@ -52,33 +52,33 @@ a, a:visited, a:hover {
 
 .line{
   height:1px;
-	background-color:#24404c;
-	border-bottom:1px solid #416371;
-	margin:1em 0;
-	overflow:hidden;
+  background-color:#24404c;
+  border-bottom:1px solid #416371;
+  margin:1em 0;
+  overflow:hidden;
 }
 
 footer .line{
-	margin:2em 0;
+  margin:2em 0;
 }
 
 .clear:after{
   content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 #page{
-	width:960px;
-	margin:0 auto;
-	position:relative;
+  width:960px;
+  margin:0 auto;
+  position:relative;
 }
 article{
-	background-color:#7b4397;
-	margin:3em 0;
-	padding:20px;
-	background: url("../img/bg-pattern.png"), #7b4397;
+  background-color:#7b4397;
+  margin:3em 0;
+  padding:20px;
+  background: url("../img/bg-pattern.png"), #7b4397;
 }
 body {
   font-size: 0.825em;
@@ -94,14 +94,14 @@ article,figure {
   color: #ffffff;
 }
 footer{
-	margin-bottom:30px;
-	text-align:center;
-	font-size:0.825em;
+  margin-bottom:30px;
+  text-align:center;
+  font-size:0.825em;
 }
 footer p{
-	margin-bottom:-2.5em;
-	position:relative;
-	color: #7b4397;
+  margin-bottom:-2.5em;
+  position:relative;
+  color: #7b4397;
 }
 input{
   -webkit-box-sizing: content-box;
@@ -132,11 +132,11 @@ input{
   transform-origin: 50% 50% 0;
 }
 #fileUpload{
-	width: 100%;
+  width: 100%;
 }
 
 #IA{
-	color: #7b4397;
+  color: #7b4397;
 }
 #create-index{
   background: #7b4397;
@@ -156,8 +156,8 @@ input{
   color: #ffffff;
   text-decoration: none;
   width: 70%;
-	padding: 12px 20px 12px 40px;
-	margin-left: 40px;
+  padding: 12px 20px 12px 40px;
+  margin-left: 40px;
 }
 
 #upload:hover{
@@ -183,34 +183,34 @@ input{
   padding: 12px 20px 12px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-	margin-left: 90px;
-	color: white;
+  margin-left: 90px;
+  color: white;
 }
 #search-input:focus {
   width: auto;
-	background: white;
-	color: #7b4397;
-	border: 1px solid #7b4397;
+  background: white;
+  color: #7b4397;
+  border: 1px solid #7b4397;
 }
 
 #search-expand{
-	width: auto;
+  width: auto;
 }
 .indexDiv{
   max-height: 400px;
-	font-size: 12px;
+  font-size: 12px;
 }
 
 #filter-drop{
-	border: 2px solid #ccc;
-	border-radius: 3px;
-	color:#7b4397;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  color:#7b4397;
   background-color: white;
-	padding: 12px 20px 12px 40px;
-	width: auto;
-	margin-left: 70px;
-	font-size: 14px;
-} 
+  padding: 12px 20px 12px 40px;
+  width: auto;
+  margin-left: 70px;
+  font-size: 14px;
+}
 
 #index-drop-list {
   border: 2px solid #ccc;
@@ -218,173 +218,173 @@ input{
   overflow: hidden;
   color:#7b4397;
   background-color: white;
-	padding: 12px 20px 12px 40px;
-	font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  font-size: 14px;
 }
 #showIndexId{
-	font-size: 12px;
+  font-size: 12px;
 }
 .indexDiv{
-	color: white;
+  color: white;
 }
 #titleHeader {
-	font-size: 1.23em;
-	font-weight: bold;
+  font-size: 1.23em;
+  font-weight: bold;
 }
 
 table {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
 }
 table thead {
-    /* head takes the height it requires, 
-    and it's not scaled when table is resized */
-    flex: 0 0 auto;
-    width: calc(100% - 0.9em);
+/* head takes the height it requires, 
+and it's not scaled when table is resized */
+  flex: 0 0 auto;
+  width: calc(100% - 0.9em);
 }
 table tbody {
-    /* body takes all the remaining available space */
-    flex: 1 1 auto;
-    display: block;
-    overflow-y: scroll;
+/* body takes all the remaining available space */
+  flex: 1 1 auto;
+  display: block;
+  overflow-y: scroll;
 }
 table tbody tr {
-    width: 100%;
+  width: 100%;
 }
 table thead, table tbody tr {
-    display: table;
-    table-layout: fixed;
+  display: table;
+  table-layout: fixed;
 }
 tbody {
-			max-height: 300px;
+  max-height: 300px;
 }
 #aboutTitle, #aboutBody, #alertError {
-	color: #7b4397;
+  color: #7b4397;
 }
 #aboutBody {
-	max-height: 400px;
-	overflow-y: scroll;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 .explain{
-	font-size: 1.7em;
+  font-size: 1.7em;
 }
 .question {
-	font-weight: bold;
-	font-size: 2.5em;
+  font-weight: bold;
+  font-size: 2.5em;
 }
 .literallayout {
-	color: #7b4397;
-	font-size: 1.9em;
+  color: #7b4397;
+  font-size: 1.9em;
 }
 #alert-message{
-	color: #7b4397;
-	font-size: 2em;
+  color: #7b4397;
+  font-size: 2em;
 }
 
 @media only screen and (max-width: 920px) {
-#page{
-	width:750px;
-	margin:0 auto;
-	position:relative;
-}
-input{
-  margin: 2px;
-}
-#fileUpload{
-	width: 90%;
-}
-#create-index{
-  width: 100%;
-  box-sizing: border-box;
-	margin-left: 10px;
-}
-#search-input {
-  width: 100%;
-	margin-left: 20px;
-}
-.indexDiv{
-	font-size: 12px;
-	color: white;
-}
+  #page{
+    width:750px;
+    margin:0 auto;
+    position:relative;
+  }
+  input{
+    margin: 2px;
+  }
+  #fileUpload{
+    width: 90%;
+  }
+  #create-index{
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 10px;
+  }
+  #search-input {
+    width: 100%;
+    margin-left: 20px;
+  }
+  .indexDiv{
+    font-size: 12px;
+    color: white;
+  }
 
-#filter-drop{
-	width: 100%;
-	margin-left: 0px;
-} 
+  #filter-drop{
+    width: 100%;
+    margin-left: 0px;
+  } 
 
-#index-drop-list {
-	width: 50%;
-	margin-left: 25px;
-}
-#showIndexId{
-	font-size: 12px;
-	margin-left: 55px;
-}
-#titleHeader {
-	font-size: 1.23em;
-	font-weight: bold;
-}
+  #index-drop-list {
+    width: 50%;
+    margin-left: 25px;
+  }
+  #showIndexId{
+    font-size: 12px;
+    margin-left: 55px;
+  }
+  #titleHeader {
+    font-size: 1.23em;
+    font-weight: bold;
+  }
 }
 
 @media only screen and (max-width: 780px) {
-#page{
-	width:500px;
-	margin:0 auto;
-	position:relative;
-}
+  #page{
+    width:500px;
+    margin:0 auto;
+    position:relative;
+  }
 
-input{
-  margin: 2px;
-}
+  input{
+    margin: 2px;
+  }
 
-#fileUpload{
-	width: 90%;
-}
-#create-index{
-  width: 100%;
-  box-sizing: border-box;
-	margin-left: 0px;
-}
-#search-input {
-  width: 100%;
-	margin-left: 0px;
-}
-.indexDiv{
-	font-size: 12px;
-	color: white;
-}
+  #fileUpload{
+    width: 90%;
+  }
+  #create-index{
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0px;
+  }
+  #search-input {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .indexDiv{
+    font-size: 12px;
+    color: white;
+  }
 
-#filter-drop{
-	width: 100%;
-	margin-left: 0px;
-} 
+  #filter-drop{
+    width: 100%;
+    margin-left: 0px;
+  } 
 
-#index-drop-list {
-	width: 50%;
-	margin-left: 25px;
-}
-#showIndexId{
-	font-size: 12px;
-	margin-left: 55px;
-}
-#titleHeader {
-	font-size: 1.23em;
-	font-weight: bold;
-}
+  #index-drop-list {
+    width: 50%;
+    margin-left: 25px;
+  }
+  #showIndexId{
+    font-size: 12px;
+    margin-left: 55px;
+  }
+  #titleHeader {
+    font-size: 1.23em;
+    font-weight: bold;
+  }
 }
 
 @media only screen and (max-width: 375px) {
-#page{
-	width:370px;
-	margin:0 auto;
-	position:relative;
-}
-#fileUpload {
-	width: 85%;
-}
-table {
-	font-size: 7px;
-}
+  #page{
+    width:370px;
+    margin:0 auto;
+    position:relative;
+  }
+  #fileUpload {
+    width: 85%;
+  }
+  table {
+    font-size: 7px;
+  }
 }

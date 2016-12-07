@@ -111,7 +111,6 @@ input{
   height: auto;
   cursor: default;
   opacity: 1;
-  /*margin: 20px;*/
   padding: 10px 20px;
   overflow: visible;
   border: 1px solid #b7b7b7;
@@ -187,14 +186,9 @@ input{
   color: white;
 }
 #search-input:focus {
-  width: auto;
   background: white;
   color: #7b4397;
   border: 1px solid #7b4397;
-}
-
-#search-expand{
-  width: auto;
 }
 .indexDiv{
   max-height: 400px;

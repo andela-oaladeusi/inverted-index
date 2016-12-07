@@ -75,5 +75,59 @@ describe("Inverted Index Test Suites", () => {
               }
             });
         });
+
+      it('Should return the correct search index for array of search terms ' +
+        'if "booksjson" file is selected',
+        () => {
+          expect(invertedIndexTest.searchIndex(['alice', 'and'], 'booksjson')).toEqual(
+            { alice: { 0: true }, and: { 0: true, 1: true } });
+        });
+
+      it('Should return index as false when search terms is not in json index ' +
+        'if "booksjson" file is selected',
+        () => {
+          expect(invertedIndexTest.searchIndex('olawale', 'booksjson')).toEqual(
+            { olawale: { 0: false } });
+        });
+
+      it('Should return the correct search index for all files when' +
+        'searching for "alice and"', () => {
+          expect(invertedIndexTest.searchIndex('olawale', 'all')).toEqual(
+            {
+              booksjson: {
+                olawale: { 0: false }
+              }, booksjson3: {
+                olawale: { 0: false }
+              }
+            });
+        });
+
+      it('Should return the correct search index for all files' +
+        'when no filter is selected "alice and"', () => {
+          expect(invertedIndexTest.searchIndex('alice and')).toEqual(
+            {
+              booksjson: {
+                alice: { 0: true },
+                and: { 0: true, 1: true }
+              }, booksjson3: {
+                alice: { 0: true },
+                and: { 0: true, 1: true, 2: true }
+              }
+            });
+        });
+
+      it('Should return the correct search index for array of search terms' +
+        ' and when no filter name is selected', () => {
+          expect(invertedIndexTest.searchIndex(['alice', 'and'])).toEqual(
+            {
+              booksjson: {
+                alice: { 0: true },
+                and: { 0: true, 1: true }
+              }, booksjson3: {
+                alice: { 0: true },
+                and: { 0: true, 1: true, 2: true }
+              }
+            });
+        });      
     });
 });

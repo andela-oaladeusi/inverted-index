@@ -130,7 +130,7 @@ let indexListOptions = $("#index-drop-list");
 // create index table upon selecting any option from select button
 $('#index-drop-list').on('click', function () {
   let jsonName = $(this).val();
-  return jsonName === null ? console.log('No file to select') : showIndex(jsonName);
+  return jsonName === null ? true : showIndex(jsonName);
 });
 
 // get and display index
@@ -197,6 +197,7 @@ let getFile = (filePath) => {
         }
     } else {
         document.getElementById('alert-message').innerHTML = "Invalid Json File";
+        setInputEmpty();
         $('#alertError').modal('show');
       }
     };

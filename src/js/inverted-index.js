@@ -25,12 +25,6 @@ class InvertedIndexClass {
    */
   createIndex(jsonArray, jsonName) {
 
-    if (!this.validateJsonContent(jsonArray)) {
-      document.getElementById('alert-message').innerHTML = "Invalid Json Content";
-      $('#alertError').modal('show');
-      return;
-    }
-
     let titleTextArray = [];
 
     this.jLength[jsonName] = jsonArray.length;
@@ -95,15 +89,21 @@ class InvertedIndexClass {
 
   /**
    * Search Index.
-   * @param {String} query query string
+   * @param {String}  query string
    * @param {String} filterName name of index to be searched.
    * @return {Object} searchResult 
   */
   searchIndex(query, filterName) {
+   
+   // check if search query is an array
+    if(query.constructor === Array){
+      query = query.toString();
+    }
+
     let searchResult = {};
     const allSearchQuery = query.toLowerCase().match(/\w+/g);
 
-    if (filterName === 'all') {
+    if (filterName === 'all' || arguments.length < 2) {
       for (let key in this.allFileIndex) {
         let searchResultKey = {};
         let searchSingleJson = this.allFileIndex[key];
@@ -117,6 +117,7 @@ class InvertedIndexClass {
         });
         searchResult[key] = searchResultKey;
       }
+
       return searchResult;
     }
     else {
@@ -140,7 +141,7 @@ class InvertedIndexClass {
   */
   validateJsonContent(jUpload) {
     try {
-      return jUpload[0].title && jUpload[0].text ? true : false;
+      return jUpload[0].title && jUpload[0].text;
     } catch (e) {
       return false;
     }
